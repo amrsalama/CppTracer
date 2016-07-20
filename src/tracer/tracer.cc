@@ -1,6 +1,8 @@
 #include <string>
 #include "tracer/tracer.h"
 
+namespace tracer {
+
 // Initialization of the static shared variables among all tracers.
 int Tracer::window_count_ = 0;
 float Tracer::window_x_position_ = 100;
@@ -46,3 +48,5 @@ Tracer::~Tracer() {
   if (window_count_ == 0)
     glutExit();
 }
+
+}  // namespace tracer

@@ -5,6 +5,8 @@
 #include "GL/freeglut.h"
 #include "GL/gl.h"
 
+namespace tracer {
+
 // The base tracer class
 class Tracer {
  public:
@@ -24,5 +26,7 @@ class Tracer {
   static float window_y_position_;  // The y-position of the next tracer.
   int window_id_;
 };
+
+}  // namespace tracer
 
 #endif  // INCLUDE_TRACER_TRACER_H_
