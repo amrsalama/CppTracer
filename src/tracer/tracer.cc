@@ -1,4 +1,6 @@
 #include <string>
+#include "GL/gl.h"
+#include "GL/freeglut.h"
 #include "tracer/tracer.h"
 
 namespace tracer {

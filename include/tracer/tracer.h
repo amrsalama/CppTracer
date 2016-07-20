@@ -2,8 +2,6 @@
 #define INCLUDE_TRACER_TRACER_H_
 
 #include <string>
-#include "GL/freeglut.h"
-#include "GL/gl.h"
 
 namespace tracer {
 
