@@ -7,10 +7,10 @@ float Tracer::window_x_position_ = 100;
 float Tracer::window_y_position_ = 100;
 
 Tracer::Tracer(int argc,
-              char** argv,
-              float window_width,
-              float window_height,
-              std::string window_title) : kWindowMargin(50.0) {
+              char **argv,
+              const float &window_width,
+              const float &window_height,
+              const std::string &window_title) : kWindowMargin(50.0) {
   window_width_ = window_width;
   window_height_ = window_height;
 
