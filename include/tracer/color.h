@@ -1,8 +1,6 @@
 #ifndef INCLUDE_TRACER_COLOR_H_
 #define INCLUDE_TRACER_COLOR_H_
 
-#include <stdio.h>
-
 namespace tracer {
 
 struct Color {
