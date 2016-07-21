@@ -28,11 +28,12 @@ Tracer::Tracer(int argc,
   glutInitWindowPosition(window_x_position_, window_y_position_);
   window_id_ = glutCreateWindow(window_title.c_str());
 
-  glClearColor(1.0, 1.0, 1.0, 0.0);
+  glClearColor(1.0, 1.0, 1.0, 1.0);
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
   glOrtho(0, window_width_, 0, window_height_, 0, 1.0);
-
+  glEnable(GL_BLEND);
+  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
   // Increse the y-position by the window height + a constant margin,
   // this allows the multiple tracers to have consistent positions.
   // TODO(@salama): Find a better placement method.
