@@ -9,7 +9,7 @@ namespace utility {
 namespace general {
 
   template<typename T>
-  inline std::string stringify(const T &data) {
+  inline std::string stringify(const T& data) {
       std::stringstream string_stream;
       std::string converted_data;
 

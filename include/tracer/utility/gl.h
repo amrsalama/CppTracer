@@ -15,14 +15,14 @@ namespace gl {
   // visualized, and with optional background color, text color and padding.
   // This is a useful utility to be used in many tracers (e.g. 1d array, ...).
   template<typename T>
-  void draw_rect(const float &x,
-                 const float &y,
-                 const float &width,
-                 const float &height,
-                 const T &data,
-                 const Color &background_color = Color(70, 70, 70),
-                 const Color &font_color = Color(255, 255, 255),
-                 const int &padding = 2) {
+  void draw_rect(const float& x,
+                 const float& y,
+                 const float& width,
+                 const float& height,
+                 const T& data,
+                 const Color& background_color = Color(70, 70, 70),
+                 const Color& font_color = Color(255, 255, 255),
+                 const int& padding = 2) {
       // Draw the rectangle.
       glColor4f(background_color.r,
                 background_color.g,

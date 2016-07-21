@@ -9,10 +9,10 @@ namespace tracer {
 class Tracer {
  public:
   Tracer(int argc,                  // [argc, argv] are required
-        char **argv,                // by glut libarary (glutInit).
-        const float &window_width,
-        const float &window_height,
-        const std::string &window_title);
+         char** argv,               // by glut libarary (glutInit).
+         const float& window_width,
+         const float& window_height,
+         const std::string& window_title);
   ~Tracer();
  protected:
   float window_width_;
