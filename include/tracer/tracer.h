@@ -24,6 +24,11 @@ class Tracer {
   float window_width_;
   float window_height_;
   float speed_;
+
+  // FLush the screen with a new iteration of render and delay
+  // the screen for the specified amount of time (speed).
+  // usend in every display functions (e.g. notify, select, ...).
+  void flush(float speed = -1);
 };
 
 }  // namespace tracer

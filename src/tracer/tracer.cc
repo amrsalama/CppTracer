@@ -2,6 +2,8 @@
 #include <string>
 #include "GL/gl.h"
 #include "GL/freeglut.h"
+#include "tracer/utility/general.h"
+#include "utility/general_inl.cc"    // general.h definition
 
 namespace tracer {
 
@@ -52,6 +54,14 @@ Tracer::~Tracer() {
   glutHideWindow();
   if (window_count_ == 0)
     glutExit();
+}
+
+void Tracer::flush(float speed) {
+  glutSetWindow(window_id_);
+  if (speed > 0)
+      utility::general::delay(speed);
+  else
+      utility::general::delay(speed_);
 }
 
 }  // namespace tracer
