@@ -14,9 +14,11 @@ Tracer::Tracer(int argc,
                char** argv,
                float window_width,
                float window_height,
+               float speed,
                const std::string& window_title) : kWindowMargin(50.0) {
   window_width_ = window_width;
   window_height_ = window_height;
+  speed_ = speed;
 
   // Only call glutInit function first time the tracer is created,
   // this allows multiple tracers to be created with glut been

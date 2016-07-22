@@ -12,17 +12,18 @@ class Tracer {
          char** argv,               // by glut libarary (glutInit).
          float window_width,
          float window_height,
+         float speed,
          const std::string& window_title);
   ~Tracer();
- protected:
-  float window_width_;
-  float window_height_;
  private:
   const float kWindowMargin;        // Margin between tracers window.
   static int window_count_;         // The number of created tracers.
   static float window_x_position_;  // The x-position of the next tracer.
   static float window_y_position_;  // The y-position of the next tracer.
   int window_id_;
+  float window_width_;
+  float window_height_;
+  float speed_;
 };
 
 }  // namespace tracer
