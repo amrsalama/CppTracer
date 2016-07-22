@@ -1,4 +1,4 @@
-#include "tracer/utility/gl.h"       // This is a definition of gl.h functions
+#include "tracer/utility/gl.h"       // definitions of gl.h functions
 #include <string>
 #include "GL/gl.h"
 #include "GL/freeglut.h"

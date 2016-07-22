@@ -1,7 +1,7 @@
+#include "tracer/tracer.h"           // definitions of tracer.h functions
 #include <string>
 #include "GL/gl.h"
 #include "GL/freeglut.h"
-#include "tracer/tracer.h"
 
 namespace tracer {
 

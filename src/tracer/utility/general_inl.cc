@@ -1,3 +1,4 @@
+#include "tracer/utility/general.h"  // definitions of general.h functions
 #include <string>
 #include <sstream>
 #include <iomanip>
