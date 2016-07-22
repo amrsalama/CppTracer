@@ -22,6 +22,9 @@ template<> inline std::string stringify<double>(const double& data);
 template<> inline std::string stringify<float>(const float& data);
 template<> inline std::string stringify<long double>(const long double& data);
 
+// Delay with the specific amount of time (in seconds)
+inline void delay(float seconds);
+
 }  // namespace general
 }  // namespace utility
 }  // namespace tracer
