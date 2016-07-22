@@ -58,6 +58,7 @@ Tracer::~Tracer() {
 
 void Tracer::flush(float speed) {
   glutSetWindow(window_id_);
+  render();
   if (speed > 0)
       utility::general::delay(speed);
   else

@@ -15,6 +15,7 @@ class Tracer {
          float speed,
          const std::string& window_title);
   ~Tracer();
+
  private:
   const float kWindowMargin;        // Margin between tracers window.
   static int window_count_;         // The number of created tracers.
@@ -29,6 +30,10 @@ class Tracer {
   // the screen for the specified amount of time (speed).
   // usend in every display functions (e.g. notify, select, ...).
   void flush(float speed = -1);
+
+  // Abstract render method, each subclass has to implement its own
+  // render method (e.g. array, matrix, graph, ...).
+  virtual void render() = 0;
 };
 
 }  // namespace tracer
