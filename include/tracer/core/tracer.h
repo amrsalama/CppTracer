@@ -1,9 +1,10 @@
-#ifndef INCLUDE_TRACER_TRACER_H_
-#define INCLUDE_TRACER_TRACER_H_
+#ifndef INCLUDE_TRACER_CORE_TRACER_H_
+#define INCLUDE_TRACER_CORE_TRACER_H_
 
 #include <string>
 
 namespace tracer {
+namespace core {
 
 // The base tracer class
 class Tracer {
@@ -38,6 +39,7 @@ class Tracer {
   int window_id_;
 };
 
+}  // namespace core
 }  // namespace tracer
 
-#endif  // INCLUDE_TRACER_TRACER_H_
+#endif  // INCLUDE_TRACER_CORE_TRACER_H_

@@ -1,9 +1,10 @@
-#ifndef INCLUDE_TRACER_UTILITY_GL_H_
-#define INCLUDE_TRACER_UTILITY_GL_H_
+#ifndef INCLUDE_TRACER_CORE_UTILITY_GL_H_
+#define INCLUDE_TRACER_CORE_UTILITY_GL_H_
 
-#include "tracer/color.h"
+#include "tracer/core/color.h"
 
 namespace tracer {
+namespace core {
 namespace utility {
 namespace gl {
 
@@ -22,9 +23,10 @@ void draw_rectangle(float x,
 
 }  // namespace gl
 }  // namespace utility
+}  // namespace core
 }  // namespace tracer
 
 // Defer definition in implementation file
-#include "tracer/impl/utility/gl.ipp"
+#include "tracer/impl/core/utility/gl.ipp"
 
-#endif  // INCLUDE_TRACER_UTILITY_GL_H_
+#endif  // INCLUDE_TRACER_CORE_UTILITY_GL_H_

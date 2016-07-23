@@ -4,8 +4,8 @@
 #include <string>
 #include "GL/gl.h"
 #include "GL/freeglut.h"
-#include "tracer/color.h"
-#include "tracer/utility/gl.h"
+#include "tracer/core/color.h"
+#include "tracer/core/utility/gl.h"
 
 namespace tracer {
 
@@ -26,7 +26,7 @@ ArrayTracer<T>::ArrayTracer(T* array,
              window_title) {
   size_ = size;
   array_.resize(size);
-  colors_.assign(size, Color(100, 200, 200));
+  colors_.assign(size, core::Color(100, 200, 200));
   for (int i = 0; i < size; i++)
     array_[i] = array[i];
 
@@ -42,7 +42,7 @@ void ArrayTracer<T>::render() {
   if (render_index < 0) {
     glClear(GL_COLOR_BUFFER_BIT);
     for (int i = 0; i < size_; i++) {
-        utility::gl::draw_rectangle((beginning_x + i*kRectangleWidth),
+        core::utility::gl::draw_rectangle((beginning_x + i*kRectangleWidth),
                                     (window_height_/2.0 - kRectangleHeight/2.0),
                                     kRectangleWidth,
                                     kRectangleHeight,
@@ -50,7 +50,7 @@ void ArrayTracer<T>::render() {
                                     colors_[i]);
     }
   } else {
-    utility::gl::draw_rectangle((beginning_x + render_index*kRectangleWidth),
+    core::utility::gl::draw_rectangle((beginning_x + render_index*kRectangleWidth),
                                 (window_height_/2.0 - kRectangleHeight/2.0),
                                 kRectangleWidth,
                                 kRectangleHeight,

@@ -1,7 +1,8 @@
-#ifndef INCLUDE_TRACER_COLOR_H_
-#define INCLUDE_TRACER_COLOR_H_
+#ifndef INCLUDE_TRACER_CORE_COLOR_H_
+#define INCLUDE_TRACER_CORE_COLOR_H_
 
 namespace tracer {
+namespace core {
 
 class Color {
  public:
@@ -37,6 +38,7 @@ class Color {
   int check_constraints(int value);
 };
 
+}  // namespace core
 }  // namespace tracer
 
-#endif  // INCLUDE_TRACER_COLOR_H_
+#endif  // INCLUDE_TRACER_CORE_COLOR_H_

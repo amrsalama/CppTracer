@@ -1,13 +1,14 @@
-#ifndef INCLUDE_TRACER_IMPL_UTILITY_GL_H_
-#define INCLUDE_TRACER_IMPL_UTILITY_GL_H_
+#ifndef INCLUDE_TRACER_IMPL_CORE_UTILITY_GL_H_
+#define INCLUDE_TRACER_IMPL_CORE_UTILITY_GL_H_
 
 #include <string>
 #include "GL/gl.h"
 #include "GL/freeglut.h"
-#include "tracer/color.h"
-#include "tracer/utility/general.h"
+#include "tracer/core/color.h"
+#include "tracer/core/utility/general.h"
 
 namespace tracer {
+namespace core {
 namespace utility {
 namespace gl {
 
@@ -49,6 +50,7 @@ void draw_rectangle(float x,
 
 }  // namespace gl
 }  // namespace utility
+}  // namespace core
 }  // namespace tracer
 
-#endif  // INCLUDE_TRACER_IMPL_UTILITY_GL_H_
+#endif  // INCLUDE_TRACER_IMPL_CORE_UTILITY_GL_H_

@@ -1,11 +1,11 @@
-#ifndef INCLUDE_TRACER_IMPL_UTILITY_GENERAL_H_
-#define INCLUDE_TRACER_IMPL_UTILITY_GENERAL_H_
+#ifndef INCLUDE_TRACER_IMPL_CORE_UTILITY_GENERAL_H_
+#define INCLUDE_TRACER_IMPL_CORE_UTILITY_GENERAL_H_
 
 #include <string>
 #include <sstream>
 #include <iomanip>
 #include <limits>
-#include "tracer/configure.h"        // defines OS_WINDOWS, etc.
+#include "tracer/core/configure.h"        // defines OS_WINDOWS, etc.
 
 #ifdef OS_WINDOWS
 #include <windows.h>
@@ -14,6 +14,7 @@
 #endif
 
 namespace tracer {
+namespace core {
 namespace utility {
 namespace general {
 
@@ -67,6 +68,7 @@ inline void delay(float seconds) {
 
 }  // namespace general
 }  // namespace utility
+}  // namespace core
 }  // namespace tracer
 
-#endif  // INCLUDE_TRACER_IMPL_UTILITY_GENERAL_H_
+#endif  // INCLUDE_TRACER_IMPL_CORE_UTILITY_GENERAL_H_

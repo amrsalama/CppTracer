@@ -1,6 +1,7 @@
-#include "tracer/color.h"            // definitions of color.h functions
+#include "tracer/core/color.h"            // definitions of color.h functions
 
 namespace tracer {
+namespace core {
 
 Color::Color(float red, float green, float blue, float alpha) {
   red_   = check_constraints(red);
@@ -79,4 +80,5 @@ int Color::check_constraints(int value) {
   return value;
 }
 
+}  // namespace core
 }  // namespace tracer

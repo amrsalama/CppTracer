@@ -1,9 +1,10 @@
-#ifndef INCLUDE_TRACER_UTILITY_GENERAL_H_
-#define INCLUDE_TRACER_UTILITY_GENERAL_H_
+#ifndef INCLUDE_TRACER_CORE_UTILITY_GENERAL_H_
+#define INCLUDE_TRACER_CORE_UTILITY_GENERAL_H_
 
 #include <string>
 
 namespace tracer {
+namespace core {
 namespace utility {
 namespace general {
 
@@ -27,9 +28,10 @@ inline void delay(float seconds);
 
 }  // namespace general
 }  // namespace utility
+}  // namespace core
 }  // namespace tracer
 
 // Defer definition in implementation file
-#include "tracer/impl/utility/general.ipp"
+#include "tracer/impl/core/utility/general.ipp"
 
-#endif  // INCLUDE_TRACER_UTILITY_GENERAL_H_
+#endif  // INCLUDE_TRACER_CORE_UTILITY_GENERAL_H_

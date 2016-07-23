@@ -1,10 +1,11 @@
-#include "tracer/tracer.h"           // definitions of tracer.h functions
+#include "tracer/core/tracer.h"           // definitions of tracer.h functions
 #include <string>
 #include "GL/gl.h"
 #include "GL/freeglut.h"
-#include "tracer/utility/general.h"
+#include "tracer/core/utility/general.h"
 
 namespace tracer {
+namespace core {
 
 // Initialization of the static shared variables among all tracers.
 int Tracer::window_count_ = 0;
@@ -59,9 +60,10 @@ void Tracer::flush(float speed) {
   glutSetWindow(window_id_);
   render();
   if (speed > 0)
-      utility::general::delay(speed);
+      core::utility::general::delay(speed);
   else
-      utility::general::delay(speed_);
+      core::utility::general::delay(speed_);
 }
 
+}  // namespace core
 }  // namespace tracer

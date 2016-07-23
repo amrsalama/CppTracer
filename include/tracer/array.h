@@ -3,13 +3,13 @@
 
 #include <string>
 #include <vector>
-#include "tracer/color.h"
-#include "tracer/tracer.h"
+#include "tracer/core/color.h"
+#include "tracer/core/tracer.h"
 
 namespace tracer {
 
 template<typename T>
-class ArrayTracer : public Tracer {
+class ArrayTracer : public core::Tracer {
  public:
   ArrayTracer(T* array,
               size_t size,
@@ -25,7 +25,7 @@ class ArrayTracer : public Tracer {
   const float kRectangleWidth, kRectangleHeight, kWindowPadding;
   int size_;
   std::vector<T> array_;
-  std::vector<Color> colors_;
+  std::vector<core::Color> colors_;
 
   // index of the array element to be rendered,
   // negative value means render all the array.
