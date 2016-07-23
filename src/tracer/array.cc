@@ -29,7 +29,7 @@ ArrayTracer<T>::ArrayTracer(T* array,
   for (int i = 0; i < size; i++)
     array_[i] = array[i];
 
-  flush(0.01);
+  flush(0.2);
 }
 
 template<typename T>
@@ -58,6 +58,38 @@ void ArrayTracer<T>::render() {
   }
 
   glFlush();
+}
+
+template<typename T>
+void ArrayTracer<T>::notify(size_t index, float speed) {
+  speed = (speed > 0 ? speed : speed_);
+
+  render_index = index;
+  colors_[index].set_red(255);
+  flush(speed);
+  colors_[index].set_red(100);
+  flush(speed);
+  render_index = -1;
+}
+
+template<typename T>
+void ArrayTracer<T>::select(size_t index, float speed) {
+  speed = (speed > 0 ? speed : speed_);
+
+  render_index = index;
+  colors_[index].set_blue(255);
+  flush(speed);
+  render_index = -1;
+}
+
+template<typename T>
+void ArrayTracer<T>::deselect(size_t index, float speed) {
+  speed = (speed > 0 ? speed : speed_);
+
+  render_index = index;
+  colors_[index].set_blue(200);
+  flush(speed);
+  render_index = -1;
 }
 
 }  // namespace tracer

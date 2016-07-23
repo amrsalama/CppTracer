@@ -17,6 +17,9 @@ class ArrayTracer : public Tracer {
               std::string window_title = "Array tracer");
   ~ArrayTracer();
   void render();
+  void notify(size_t index, float speed = -1);
+  void select(size_t index, float speed = -1);
+  void deselect(size_t index, float speed = -1);
 
  private:
   const float kRectangleWidth, kRectangleHeight, kWindowPadding;
