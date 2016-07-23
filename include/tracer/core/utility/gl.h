@@ -1,6 +1,15 @@
 #ifndef INCLUDE_TRACER_CORE_UTILITY_GL_H_
 #define INCLUDE_TRACER_CORE_UTILITY_GL_H_
 
+// Copyright © 2016.
+// Contributors to this file are:
+//    Amr Salama <amr.mo.salama@gmail.com>,
+//    ...
+//
+// freeglut (openGL) core utilities for the whole library.
+// In general, this utilities define the basic shapes drawing with some
+// data visualization (e.g. rectangles, circles, arrows, ...).
+
 #include "tracer/core/color.h"
 
 namespace tracer {
@@ -8,9 +17,14 @@ namespace core {
 namespace utility {
 namespace gl {
 
-// Draw a rectangle with a specific x, w, width, height and the data to be
+// Draw a rectangle with the specified x, w, width, height and the data to be
 // visualized, and with optional background color, text color and padding.
-// This is a useful utility to be used in many tracers (e.g. 1d array, ...).
+// This is a useful utility to be used in many tracers (e.g. array, matrix, ...)
+//
+// Examples:
+//    draw_rectangle(0, 0, 100, 100, 11, Color(255, 0, 0));
+//    draw_rectangle(0, 0, 100, 100, 22, Color(255, 0, 0), Color(0, 0, 0));
+//    draw_rectangle(0, 0, 100, 100, 33, Color(255, 0, 0), Color(0, 0, 0), 5);
 template<typename T>
 void draw_rectangle(float x,
                     float y,
@@ -26,7 +40,7 @@ void draw_rectangle(float x,
 }  // namespace core
 }  // namespace tracer
 
-// Defer definition in implementation file
+// Defer the definition in an implementation file.
 #include "tracer/impl/core/utility/gl.ipp"
 
 #endif  // INCLUDE_TRACER_CORE_UTILITY_GL_H_
