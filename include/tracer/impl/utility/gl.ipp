@@ -1,10 +1,11 @@
-#include "tracer/utility/gl.h"       // definitions of gl.h functions
+#ifndef INCLUDE_TRACER_IMPL_UTILITY_GL_H_
+#define INCLUDE_TRACER_IMPL_UTILITY_GL_H_
+
 #include <string>
 #include "GL/gl.h"
 #include "GL/freeglut.h"
 #include "tracer/color.h"
 #include "tracer/utility/general.h"
-#include "general_inl.cc"            // general.h definition
 
 namespace tracer {
 namespace utility {
@@ -49,3 +50,5 @@ void draw_rectangle(float x,
 }  // namespace gl
 }  // namespace utility
 }  // namespace tracer
+
+#endif  // INCLUDE_TRACER_IMPL_UTILITY_GL_H_

@@ -34,4 +34,7 @@ class ArrayTracer : public Tracer {
 
 }  // namespace tracer
 
+// Defer definition in implementation file
+#include "tracer/impl/array.ipp"
+
 #endif  // INCLUDE_TRACER_ARRAY_H_

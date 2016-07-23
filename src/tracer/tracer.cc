@@ -3,7 +3,6 @@
 #include "GL/gl.h"
 #include "GL/freeglut.h"
 #include "tracer/utility/general.h"
-#include "utility/general_inl.cc"    // general.h definition
 
 namespace tracer {
 

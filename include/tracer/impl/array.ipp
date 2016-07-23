@@ -1,10 +1,11 @@
-#include "tracer/array.h"            // definitions of array.h functions
+#ifndef INCLUDE_TRACER_IMPL_ARRAY_H_
+#define INCLUDE_TRACER_IMPL_ARRAY_H_
+
 #include <string>
 #include "GL/gl.h"
 #include "GL/freeglut.h"
 #include "tracer/color.h"
 #include "tracer/utility/gl.h"
-#include "utility/gl_inl.cc"
 
 namespace tracer {
 
@@ -93,3 +94,5 @@ void ArrayTracer<T>::deselect(size_t index, float speed) {
 }
 
 }  // namespace tracer
+
+#endif  // INCLUDE_TRACER_IMPL_ARRAY_H_

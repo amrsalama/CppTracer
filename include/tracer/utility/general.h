@@ -29,4 +29,7 @@ inline void delay(float seconds);
 }  // namespace utility
 }  // namespace tracer
 
+// Defer definition in implementation file
+#include "tracer/impl/utility/general.ipp"
+
 #endif  // INCLUDE_TRACER_UTILITY_GENERAL_H_

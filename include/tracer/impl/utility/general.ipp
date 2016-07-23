@@ -1,4 +1,6 @@
-#include "tracer/utility/general.h"  // definitions of general.h functions
+#ifndef INCLUDE_TRACER_IMPL_UTILITY_GENERAL_H_
+#define INCLUDE_TRACER_IMPL_UTILITY_GENERAL_H_
+
 #include <string>
 #include <sstream>
 #include <iomanip>
@@ -66,3 +68,5 @@ inline void delay(float seconds) {
 }  // namespace general
 }  // namespace utility
 }  // namespace tracer
+
+#endif  // INCLUDE_TRACER_IMPL_UTILITY_GENERAL_H_
