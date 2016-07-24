@@ -1,6 +1,13 @@
 #ifndef INCLUDE_TRACER_IMPL_CORE_UTILITY_GL_H_
 #define INCLUDE_TRACER_IMPL_CORE_UTILITY_GL_H_
 
+// Copyright © 2016.
+// Contributors to this file are:
+//    Amr Salama <amr.mo.salama@gmail.com>,
+//    ...
+//
+// Implementation of gl.h utility header file.
+
 #include <string>
 #include "GL/gl.h"
 #include "GL/freeglut.h"
@@ -14,14 +21,14 @@ namespace gl {
 
 template<typename T>
 void draw_rectangle(float x,
-               float y,
-               float width,
-               float height,
-               const T& data,
-               const Color& background_color = Color(70, 70, 70),
-               const Color& font_color = Color(255, 255, 255),
-               int padding = 2) {
-    // Draw the rectangle.
+                    float y,
+                    float width,
+                    float height,
+                    const T& data,
+                    const Color& background_color = Color(70, 70, 70),
+                    const Color& font_color = Color(255, 255, 255),
+                    int padding = 2) {
+    // Draw rectangle.
     glColor4f(background_color.get_red(),
               background_color.get_green(),
               background_color.get_blue(),
@@ -33,7 +40,7 @@ void draw_rectangle(float x,
         glVertex2f(x + width - padding, y + padding);           // lower right
     glEnd();
 
-    // Draw the data.
+    // Draw data.
     // The used font is GLUT_BITMAP_9_BY_15,
     // in which each character takes 9x15.
     glColor4f(font_color.get_red(),
@@ -41,8 +48,8 @@ void draw_rectangle(float x,
               font_color.get_blue(),
               font_color.get_alpha());
     std::string text = utility::general::stringify(data);
-    glRasterPos2f(x + (width / 2.0) - ((9 * text.size()) / 2.0),  // Center
-                  y + (height/2.0) - (15 / 2.0));                 // Middle
+    glRasterPos2f(x + (width  / 2.0) - ((9 * text.size()) / 2.0),  // Center
+                  y + (height / 2.0) - (15 / 2.0));                // Middle
     for (int i = 0; i < text.size(); i++) {
         glutBitmapCharacter(GLUT_BITMAP_9_BY_15, text[i]);
     }

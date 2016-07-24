@@ -28,17 +28,17 @@ class Color {
   void set_red(float value);    // Setting floating-point value from 0.0 to 1.0
   void set_red(int value);      // Setting integer value from 0 to 255
 
-  // Blue channel getter/setter.
-  float get_blue() const;
-  void set_blue(float value);   // Setting floating-point value from 0.0 to 1.0
-  void set_blue(int value);     // Setting integer value from 0 to 255
-
   // Green channel getter/setter.
   float get_green() const;
   void set_green(float value);  // Setting floating-point value from 0.0 to 1.0
   void set_green(int value);    // Setting integer value from 0 to 255
 
-  // Aplha channel getter/setter.
+  // Blue channel getter/setter.
+  float get_blue() const;
+  void set_blue(float value);   // Setting floating-point value from 0.0 to 1.0
+  void set_blue(int value);     // Setting integer value from 0 to 255
+
+  // Alpha channel getter/setter.
   float get_alpha() const;
   void set_alpha(float value);  // Setting floating-point value from 0.0 to 1.0
   void set_alpha(int value);    // Setting integer value from 0 to 255
