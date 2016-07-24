@@ -28,6 +28,9 @@ void draw_rectangle(float x,
                     const Color& background_color = Color(70, 70, 70),
                     const Color& font_color = Color(255, 255, 255),
                     int padding = 2) {
+    if (x < 0) x = 0;  // can't be less than 0
+    if (y < 0) y = 0;  // can't be less than 0
+
     // Draw rectangle.
     glColor4f(background_color.get_red(),
               background_color.get_green(),
