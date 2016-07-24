@@ -83,6 +83,6 @@ class ArrayTracer : public core::Tracer {
 }  // namespace tracer
 
 // Defer the definition in an implementation file.
-#include "tracer/impl/array.ipp"
+#include "tracer/impl/array.h"
 
 #endif  // INCLUDE_TRACER_ARRAY_H_

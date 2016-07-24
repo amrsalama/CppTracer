@@ -41,6 +41,6 @@ void draw_rectangle(float x,
 }  // namespace tracer
 
 // Defer the definition in an implementation file.
-#include "tracer/impl/core/utility/gl.ipp"
+#include "tracer/impl/core/utility/gl.h"
 
 #endif  // INCLUDE_TRACER_CORE_UTILITY_GL_H_

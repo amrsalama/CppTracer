@@ -1,3 +1,6 @@
+#ifndef INCLUDE_TRACER_IMPL_CORE_COLOR_H_
+#define INCLUDE_TRACER_IMPL_CORE_COLOR_H_
+
 // Copyright © 2016.
 // Contributors to this file are:
 //    Amr Salama <amr.mo.salama@gmail.com>,
@@ -58,3 +61,5 @@ int Color::check_constraints(int value) {
 
 }  // namespace core
 }  // namespace tracer
+
+#endif  // INCLUDE_TRACER_IMPL_CORE_COLOR_H_

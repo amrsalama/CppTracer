@@ -56,4 +56,7 @@ class Tracer {
 }  // namespace core
 }  // namespace tracer
 
+// Defer the definition in an implementation file.
+#include "tracer/impl/core/tracer.h"
+
 #endif  // INCLUDE_TRACER_CORE_TRACER_H_

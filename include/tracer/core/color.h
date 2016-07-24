@@ -68,4 +68,7 @@ class Color {
 }  // namespace core
 }  // namespace tracer
 
+// Defer the definition in an implementation file.
+#include "tracer/impl/core/color.h"
+
 #endif  // INCLUDE_TRACER_CORE_COLOR_H_

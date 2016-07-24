@@ -1,3 +1,6 @@
+#ifndef INCLUDE_TRACER_IMPL_CORE_TRACER_H_
+#define INCLUDE_TRACER_IMPL_CORE_TRACER_H_
+
 // Copyright © 2016.
 // Contributors to this file are:
 //    Amr Salama <amr.mo.salama@gmail.com>,
@@ -79,3 +82,5 @@ void Tracer::flush(float speed) {
 
 }  // namespace core
 }  // namespace tracer
+
+#endif  // INCLUDE_TRACER_IMPL_CORE_TRACER_H_
