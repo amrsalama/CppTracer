@@ -73,7 +73,8 @@ void Tracer::flush(float speed) {
   // Set the focus on this tracer window so that the following drawing will
   // (render) will be in this tracer.
   glutSetWindow(window_id_);
-  render();
+  for (int i = 0; i < 5; i++)  // reduce the occurrence of semi-render problem
+    render();
   if (speed > 0)
       core::utility::general::delay(speed);   // default speed
   else
