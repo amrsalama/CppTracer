@@ -36,6 +36,7 @@ class ArrayTracer : public core::Tracer {
               core::Theme theme = DEFALUT_THEME);
   ~ArrayTracer();
 
+  // Override update abstract method.
   // Update array tracer data, and visualize all changes happened to the array.
   //
   // Examples:
@@ -43,6 +44,7 @@ class ArrayTracer : public core::Tracer {
   //    update(0.5);
   void update(float speed = -1);
 
+  // Override notify abstract method.
   // Notify array element with the specified index,
   // which means to flash the element with a different color then
   // flash again to its previous color.
@@ -52,6 +54,7 @@ class ArrayTracer : public core::Tracer {
   //    notify(0, 0.5);
   void notify(size_t index, float speed = -1);
 
+  // Override select abstract method.
   // Select array element with the specified index,
   // which means to mark the element with a different color.
   //
@@ -60,6 +63,7 @@ class ArrayTracer : public core::Tracer {
   //    select(0, 0.5);
   void select(size_t index, float speed = -1);
 
+  // Override deselect abstract method.
   // Deselect array element with the specified index,
   // which means to mark the element with its previous color.
   // This is the opposite method to select,

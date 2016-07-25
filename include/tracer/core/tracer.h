@@ -26,6 +26,41 @@ class Tracer {
          const Color& window_background);
   ~Tracer();
 
+  // Update tracer data, and visualize all changes happened.
+  //
+  // Examples:
+  //    update();
+  //    update(0.5);
+  virtual void update(float speed = -1) = 0;
+
+  // Notify element with the specified index,
+  // which means to flash the element with a different color then
+  // flash again to its previous color.
+  //
+  // Examples:
+  //    notify(0);
+  //    notify(0, 0.5);
+  virtual void notify(size_t index, float speed = -1) = 0;
+
+  // Select the element with the specified index,
+  // which means to mark the element with a different color.
+  //
+  // Examples:
+  //    select(0);
+  //    select(0, 0.5);
+  virtual void select(size_t index, float speed = -1) = 0;
+
+  // Deselect the element with the specified index,
+  // which means to mark the element with its previous color.
+  //
+  // This is the opposite method to select,
+  // so whenever you select an element you may want to deselect it agian.
+  //
+  // Examples:
+  //    deselect(0);
+  //    deselect(0, 0.5);
+  virtual void deselect(size_t index, float speed = -1) = 0;
+
  protected:
   float window_width_;
   float window_height_;
