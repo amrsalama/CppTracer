@@ -12,6 +12,7 @@
 #include <string>
 #include <vector>
 #include "tracer/core/color.h"
+#include "tracer/core/themes.h"
 #include "tracer/core/tracer.h"
 
 namespace tracer {
@@ -31,7 +32,8 @@ class ArrayTracer : public core::Tracer {
   ArrayTracer(T* array,
               size_t size,
               float speed = 0.5,
-              std::string window_title = "Array tracer");
+              std::string window_title = "Array tracer",
+              core::Theme theme = DEFALUT_THEME);
   ~ArrayTracer();
 
   // Update array tracer data, and visualize all changes happened to the array.
@@ -73,7 +75,8 @@ class ArrayTracer : public core::Tracer {
   T* array_ptr;
   int size_;
   std::vector<T> array_;
-  std::vector<core::Color> colors_;
+  std::vector<core::VisualizedElement> elements_;
+  core::Theme theme_;
 
   // Override render abstract method.
   void render(int index = -1);

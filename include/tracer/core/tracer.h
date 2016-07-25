@@ -10,6 +10,7 @@
 // Handles glut windows initialization, and flushes outputs to screen.
 
 #include <string>
+#include "tracer/core/color.h"
 
 namespace tracer {
 namespace core {
@@ -21,7 +22,8 @@ class Tracer {
          float window_width,
          float window_height,
          float speed,
-         const std::string& window_title);
+         const std::string& window_title,
+         const Color& window_background);
   ~Tracer();
 
  protected:

@@ -13,6 +13,13 @@
 namespace tracer {
 namespace core {
 
+Color::Color() {
+  red_   = 0.0;
+  green_ = 0.0;
+  blue_  = 0.0;
+  alpha_ = 0.0;
+}
+
 Color::Color(float red, float green, float blue, float alpha) {
   red_   = check_constraints(red);
   green_ = check_constraints(green);

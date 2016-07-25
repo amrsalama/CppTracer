@@ -28,7 +28,8 @@ Tracer::Tracer(int argc,
                float window_width,
                float window_height,
                float speed,
-               const std::string& window_title) : kWindowMargin(50.0) {
+               const std::string& window_title,
+               const Color& window_background) : kWindowMargin(50.0) {
   window_width_ = window_width;
   window_height_ = window_height;
   speed_ = speed;
@@ -43,7 +44,10 @@ Tracer::Tracer(int argc,
   glutInitWindowPosition(window_x_position_, window_y_position_);
   window_id_ = glutCreateWindow(window_title.c_str());
 
-  glClearColor(1.0, 1.0, 1.0, 1.0);  // White background
+  glClearColor(window_background.get_red(),
+               window_background.get_green(),
+               window_background.get_blue(),
+               window_background.get_alpha());
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
   glOrtho(0, window_width_, 0, window_height_, 0, 1.0);

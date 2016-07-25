@@ -13,6 +13,9 @@ namespace core {
 
 class Color {
  public:
+  // Default constructor, black color.
+  Color();
+
   // Constructor for floating-point values,
   // each channel (red, green, ...) should
   // have a floating-point value from 0.0 to 1.0
