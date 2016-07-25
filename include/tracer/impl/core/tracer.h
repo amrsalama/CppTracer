@@ -69,16 +69,24 @@ Tracer::~Tracer() {
     glutExit();
 }
 
-void Tracer::flush(float speed) {
+void Tracer::flush(float speed, int index) {
   // Set the focus on this tracer window so that the following drawing will
   // (render) will be in this tracer.
   glutSetWindow(window_id_);
-  for (int i = 0; i < 5; i++)  // reduce the occurrence of semi-render problem
-    render();
-  if (speed > 0)
-      core::utility::general::delay(speed);   // default speed
-  else
-      core::utility::general::delay(speed_);
+
+  for (int i = 0; i < 5; i++) {  // reduce the occurrence of semi-render problem
+    if (index < 0) {  // negative value means render all the tracer data
+      render();
+    } else {          // render the element with this index
+      render(index);
+    }
+  }
+
+  if (speed < 0) {
+    core::utility::general::delay(speed_);
+  } else {
+    core::utility::general::delay(speed);   // default speed
+  }
 }
 
 }  // namespace core

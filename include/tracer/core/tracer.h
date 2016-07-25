@@ -36,14 +36,26 @@ class Tracer {
   // If no speed specified or has negative value, the flush method will use
   // the default speed specified in tracer constructor.
   //
+  // Index is the index of the element to be rendered,
+  // negative value means render all the tracer data.
+  //
   // Examples:
   //    flush();
   //    flush(0.5);
-  void flush(float speed = -1);
+  //    flush(0.5, 1);
+  void flush(float speed = -1, int index = -1);
 
   // Abstract render method, each subclass has to implement its own
   // render method (e.g. array, matrix, graph, ...).
-  virtual void render() = 0;
+  //
+  // Index is the index of the element to be rendered,
+  // negative value means render all the tracer data.
+  //
+  // This is helping in optimize the number of render operations,
+  // just imagine that you want to visualize 1000 elements of an array,
+  // then you have to draw them each time, but fortunately we can rerender
+  // the changed element only which has this index.
+  virtual void render(int index = -1) = 0;
 
  private:
   const float kWindowMargin;        // Margin between tracers window.

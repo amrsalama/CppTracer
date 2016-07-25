@@ -17,10 +17,6 @@
 
 namespace tracer {
 
-// Initialization of static variables.
-template<typename T>
-int ArrayTracer<T>::render_index = -1;
-
 // Constructor
 template<typename T>
 ArrayTracer<T>
@@ -49,10 +45,10 @@ ArrayTracer<T>::~ArrayTracer() {}
 
 // Overloaded render method
 template<typename T>
-void ArrayTracer<T>::render() {
+void ArrayTracer<T>::render(int index) {
   float beginning_x = kWindowPadding;
 
-  if (render_index < 0) {            // render all the array
+  if (index < 0) {                   // render all the array
     glClear(GL_COLOR_BUFFER_BIT);    // clear color buffer
     for (int i = 0; i < size_; i++) {
       core::utility::gl
@@ -63,10 +59,10 @@ void ArrayTracer<T>::render() {
     }
   } else {
     core::utility::gl
-    ::draw_rectangle((beginning_x + render_index * kRectangleWidth),
+    ::draw_rectangle((beginning_x + index * kRectangleWidth),
                      (window_height_ / 2.0 - kRectangleHeight / 2.0),
                      kRectangleWidth, kRectangleHeight,
-                     array_[render_index], colors_[render_index]);
+                     array_[index], colors_[index]);
   }
 
   glFlush();
@@ -80,54 +76,39 @@ void ArrayTracer<T>::update(float speed) {
   // Get all changed elements indices.
   std::vector<int> changed_elements_indices;
   for (int i = 0; i < size_; i++) {
-    if (array_[i] != array_ptr[i]) {
+    if (array_[i] != array_ptr[i])
       changed_elements_indices.push_back(i);
-    }
   }
 
   // If no changes happen just return.
   if (changed_elements_indices.empty())
     return;
 
+  int index;
   // Update in 3 steps:
   // 1. Mark all changed elements with different color.
   for (int i = 0; i < changed_elements_indices.size(); i++) {
-    int index = changed_elements_indices[i];
-
-    // Set the current render index to the element index.
-    render_index = index;
-
+    index = changed_elements_indices[i];
     colors_[index].set_green(255);
-    flush(0.001);  // flush the element to screen, we don't need to wait
+    flush(0.0, index);  // flush the element to screen, we don't need to wait
   }
-  flush(speed / 3.0);
+  flush(speed / 3.0, index);
 
   // 2. Update array data.
   for (int i = 0; i < changed_elements_indices.size(); i++) {
-    int index = changed_elements_indices[i];
-
-    // Set the current render index to the element index.
-    render_index = index;
-
+    index = changed_elements_indices[i];
     array_[index] = array_ptr[index];  // update array data
-    flush(0.001);  // flush the element to screen, we don't need to wait
+    flush(0.0, index);  // flush the element to screen, we don't need to wait
   }
-  flush(speed / 3.0);
+  flush(speed / 3.0, index);
 
   // 3. Unmark all changed elements.
   for (int i = 0; i < changed_elements_indices.size(); i++) {
-    int index = changed_elements_indices[i];
-
-    // Set the current render index to the element index.
-    render_index = index;
-
+    index = changed_elements_indices[i];
     colors_[index].set_green(200);
-    flush(0.001);  // flush the element to screen, we don't need to wait
+    flush(0.0, index);  // flush the element to screen, we don't need to wait
   }
-  flush(speed / 3.0);
-
-  // Reset render index.
-  render_index = -1;
+  flush(speed / 3.0, index);
 }
 
 // Notify visualization method
@@ -135,19 +116,13 @@ template<typename T>
 void ArrayTracer<T>::notify(size_t index, float speed) {
   speed = (speed > 0 ? speed : speed_);
 
-  // Set the current render index to the element index.
-  render_index = index;
-
   // Flash the element with a different color.
   colors_[index].set_red(255);
-  flush(speed / 2.0);
+  flush(speed / 2.0, index);
 
   // Flash again to its previous color.
   colors_[index].set_red(100);
-  flush(speed / 2.0);
-
-  // Reset render index.
-  render_index = -1;
+  flush(speed / 2.0, index);
 }
 
 // Select visualization method
@@ -155,15 +130,9 @@ template<typename T>
 void ArrayTracer<T>::select(size_t index, float speed) {
   speed = (speed > 0 ? speed : speed_);
 
-  // Set the current render index to the element index.
-  render_index = index;
-
   // Mark the element with a different color.
   colors_[index].set_blue(255);
-  flush(speed);
-
-  // Reset render index.
-  render_index = -1;
+  flush(speed, index);
 }
 
 // Deselect visualization method
@@ -171,15 +140,9 @@ template<typename T>
 void ArrayTracer<T>::deselect(size_t index, float speed) {
   speed = (speed > 0 ? speed : speed_);
 
-  // Set the current render index to the element index.
-  render_index = index;
-
   // Mark the element with its previous color.
   colors_[index].set_blue(200);
-  flush(speed);
-
-  // Reset render index.
-  render_index = -1;
+  flush(speed, index);
 }
 
 }  // namespace tracer

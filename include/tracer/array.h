@@ -34,9 +34,6 @@ class ArrayTracer : public core::Tracer {
               std::string window_title = "Array tracer");
   ~ArrayTracer();
 
-  // Override render abstract method.
-  void render();
-
   // Update array tracer data, and visualize all changes happened to the array.
   //
   // Examples:
@@ -78,14 +75,8 @@ class ArrayTracer : public core::Tracer {
   std::vector<T> array_;
   std::vector<core::Color> colors_;
 
-  // Index of the array element to be rendered,
-  // negative value means render all the array.
-  //
-  // This is helping in optimize the number of render operations,
-  // just imagine that you want to visualize 1000 elements of an array,
-  // then you have to draw them each time, but fortunately we can rerender
-  // the changed element only which has this index.
-  static int render_index;
+  // Override render abstract method.
+  void render(int index = -1);
 };
 
 }  // namespace tracer
