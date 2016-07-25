@@ -11,7 +11,6 @@
 
 #include <string>
 #include <vector>
-#include "tracer/core/color.h"
 #include "tracer/core/themes.h"
 #include "tracer/core/tracer.h"
 

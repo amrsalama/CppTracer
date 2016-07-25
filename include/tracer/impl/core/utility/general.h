@@ -8,6 +8,7 @@
 //
 // Implementation of general.h utility header file.
 
+#include "tracer/core/utility/general.h"
 #include <string>
 #include <sstream>                  // ostringstream
 #include <iomanip>                  // setprecision

@@ -8,8 +8,8 @@
 //
 // Implementation of gl.h utility header file.
 
+#include "tracer/core/utility/gl.h"
 #include <algorithm>
-#include <iostream>
 #include <string>
 #include "GL/gl.h"
 #include "GL/freeglut.h"
