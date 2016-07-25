@@ -37,6 +37,13 @@ class ArrayTracer : public core::Tracer {
   // Override render abstract method.
   void render();
 
+  // Update array tracer data, and visualize all changes happened to the array.
+  //
+  // Examples:
+  //    update();
+  //    update(0.5);
+  void update(float speed = -1);
+
   // Notify array element with the specified index,
   // which means to flash the element with a different color then
   // flash again to its previous color.
@@ -66,6 +73,7 @@ class ArrayTracer : public core::Tracer {
 
  private:
   const float kRectangleWidth, kRectangleHeight, kWindowPadding;
+  T* array_ptr;
   int size_;
   std::vector<T> array_;
   std::vector<core::Color> colors_;
