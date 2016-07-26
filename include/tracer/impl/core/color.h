@@ -34,6 +34,7 @@ Color::Color(int red, int green, int blue, int alpha) {
   alpha_ = check_constraints(alpha) / 255.0;
 }
 
+
 // Red channel getter/setter.
 float Color::get_red() const        { return red_; }
 void  Color::set_red(float value)   { red_ = check_constraints(value); }
@@ -53,6 +54,7 @@ void  Color::set_blue(int value)    { blue_ = check_constraints(value)/255.0; }
 float Color::get_alpha() const      { return alpha_; }
 void  Color::set_alpha(float value) { alpha_ = check_constraints(value); }
 void  Color::set_alpha(int value)   { alpha_ = check_constraints(value)/255.0; }
+
 
 float Color::check_constraints(float value) {
   if (value < 0.0) value = 0.0;

@@ -26,40 +26,43 @@ namespace core {
 namespace utility {
 namespace general {
 
-template<typename T> inline std::string stringify(const T& data) {
+// Stringify
+template<typename T> std::string stringify(const T& data) {
     std::ostringstream string_stream;
     string_stream << data;
     return string_stream.str();
 }
 
-template<> inline std::string stringify<bool>(const bool& data) {
+template<> std::string stringify<bool>(const bool& data) {
   std::ostringstream string_stream;
   string_stream << std::boolalpha << data;
   return string_stream.str();
 }
 
-template<> inline std::string stringify<double>(const double& data) {
+template<> std::string stringify<double>(const double& data) {
   const int sigdigits = std::numeric_limits<double>::digits10;
   std::ostringstream string_stream;
   string_stream << std::setprecision(sigdigits) << data;
   return string_stream.str();
 }
 
-template<> inline std::string stringify<float>(const float& data) {
+template<> std::string stringify<float>(const float& data) {
   const int sigdigits = std::numeric_limits<float>::digits10;
   std::ostringstream string_stream;
   string_stream << std::setprecision(sigdigits) << data;
   return string_stream.str();
 }
 
-template<> inline std::string stringify<long double>(const long double& data) {
+template<> std::string stringify<long double>(const long double& data) {
   const int sigdigits = std::numeric_limits<long double>::digits10;
   std::ostringstream string_stream;
   string_stream << std::setprecision(sigdigits) << data;
   return string_stream.str();
 }
 
-inline void delay(float seconds) {
+
+// Delay
+void delay(float seconds) {
   #ifdef OS_WINDOWS
   int milisec = static_cast<int>(seconds * 1000);
   Sleep(milisec);

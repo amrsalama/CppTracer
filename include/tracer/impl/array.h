@@ -20,10 +20,11 @@ namespace tracer {
 
 // Constructor
 template<typename T>
-ArrayTracer<T>::ArrayTracer(T* array, size_t size,
+ArrayTracer<T>::ArrayTracer(T* array,
+                            int size,
                             float speed,
-                            std::string window_title,
-                            core::Theme theme)
+                            const std::string& window_title,
+                            const core::Theme& theme)
     : kRectangleWidth(50.0), kRectangleHeight(50.0), kWindowPadding(15.0),
       Tracer(0,     // argc
              NULL,  // argv
@@ -31,23 +32,21 @@ ArrayTracer<T>::ArrayTracer(T* array, size_t size,
              (50.0)        + (15.0 * 2),  // 50 for rect height, 15 for padding
              speed,
              window_title,
-             theme.tracer_background_color) {
+             theme) {
   array_ptr = array;                      // save pointer to the original array
   size_ = size;
-  array_.resize(size);
+  array_.assign(array, array + size);
   elements_.assign(size, theme.normal);
-  theme_ = theme;
-
-  for (int i = 0; i < size; i++)
-    array_[i] = array[i];
 
   // Display the tracer and wait for 0.2 second.
   flush(0.2);
 }
 
+
 // Destructor
 template<typename T>
 ArrayTracer<T>::~ArrayTracer() {}
+
 
 // Overloaded render method
 template<typename T>
@@ -60,7 +59,8 @@ void ArrayTracer<T>::render(int index) {
       core::utility::gl
       ::draw_rectangle((beginning_x + i * kRectangleWidth),
                        (window_height_ / 2.0 - kRectangleHeight / 2.0),
-                       kRectangleWidth, kRectangleHeight,
+                       kRectangleWidth,
+                       kRectangleHeight,
                        array_[i],
                        elements_[i].background_color,
                        elements_[i].font_color);
@@ -69,7 +69,8 @@ void ArrayTracer<T>::render(int index) {
     core::utility::gl
     ::draw_rectangle((beginning_x + index * kRectangleWidth),
                      (window_height_ / 2.0 - kRectangleHeight / 2.0),
-                     kRectangleWidth, kRectangleHeight,
+                     kRectangleWidth,
+                     kRectangleHeight,
                      array_[index],
                      elements_[index].background_color,
                      elements_[index].font_color);
@@ -77,6 +78,7 @@ void ArrayTracer<T>::render(int index) {
 
   glFlush();
 }
+
 
 // Update visualization method
 template<typename T>
@@ -125,9 +127,10 @@ void ArrayTracer<T>::update(float speed) {
   flush(speed / 3.0, index);
 }
 
+
 // Notify visualization method
 template<typename T>
-void ArrayTracer<T>::notify(size_t index, float speed) {
+void ArrayTracer<T>::notify(int index, float speed) {
   speed = (speed > 0 ? speed : speed_);
   core::VisualizedElement current_style = elements_[index];  // temp
 
@@ -140,9 +143,10 @@ void ArrayTracer<T>::notify(size_t index, float speed) {
   flush(speed / 2.0, index);
 }
 
+
 // Select visualization method
 template<typename T>
-void ArrayTracer<T>::select(size_t index, float speed) {
+void ArrayTracer<T>::select(int index, float speed) {
   speed = (speed > 0 ? speed : speed_);
 
   // Mark the element with a selected style.
@@ -150,9 +154,10 @@ void ArrayTracer<T>::select(size_t index, float speed) {
   flush(speed, index);
 }
 
+
 // Deselect visualization method
 template<typename T>
-void ArrayTracer<T>::deselect(size_t index, float speed) {
+void ArrayTracer<T>::deselect(int index, float speed) {
   speed = (speed > 0 ? speed : speed_);
 
   // Mark the element with its normal style.

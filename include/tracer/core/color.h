@@ -27,24 +27,24 @@ class Color {
   Color(int red, int green, int blue, int alpha = 255);
 
   // Red channel getter/setter.
-  float get_red() const;
-  void set_red(float value);    // Setting floating-point value from 0.0 to 1.0
-  void set_red(int value);      // Setting integer value from 0 to 255
+  inline float get_red() const;
+  inline void set_red(float value);    // Setting value from 0.0 to 1.0
+  inline void set_red(int value);      // Setting value from 0 to 255
 
   // Green channel getter/setter.
-  float get_green() const;
-  void set_green(float value);  // Setting floating-point value from 0.0 to 1.0
-  void set_green(int value);    // Setting integer value from 0 to 255
+  inline float get_green() const;
+  inline void set_green(float value);  // Setting value from 0.0 to 1.0
+  inline void set_green(int value);    // Setting value from 0 to 255
 
   // Blue channel getter/setter.
-  float get_blue() const;
-  void set_blue(float value);   // Setting floating-point value from 0.0 to 1.0
-  void set_blue(int value);     // Setting integer value from 0 to 255
+  inline float get_blue() const;
+  inline void set_blue(float value);   // Setting value from 0.0 to 1.0
+  inline void set_blue(int value);     // Setting value from 0 to 255
 
   // Alpha channel getter/setter.
-  float get_alpha() const;
-  void set_alpha(float value);  // Setting floating-point value from 0.0 to 1.0
-  void set_alpha(int value);    // Setting integer value from 0 to 255
+  inline float get_alpha() const;
+  inline void set_alpha(float value);  // Setting value from 0.0 to 1.0
+  inline void set_alpha(int value);    // Setting value from 0 to 255
 
  private:
   float red_, green_, blue_, alpha_;
@@ -56,7 +56,7 @@ class Color {
   //    check_constraints(0.5);     => 0.5
   //    check_constraints(2.1);     => 1.0
   //    check_constraints(-0.5);    => 0.0
-  float check_constraints(float value);
+  inline float check_constraints(float value);
 
   // Check if value is between 0 and 255,
   // if not try to return the best possible value.
@@ -65,7 +65,7 @@ class Color {
   //    check_constraints(127);    => 127
   //    check_constraints(210);    => 255
   //    check_constraints(-50);    => 0
-  int check_constraints(int value);
+  inline int check_constraints(int value);
 };
 
 }  // namespace core

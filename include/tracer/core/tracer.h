@@ -7,10 +7,11 @@
 //    ...
 //
 // The base abstract tracer class, defines the core functionality of the tracer.
-// Handles glut windows initialization, and flushes outputs to screen.
+// Handles freeglut windows initialization, and flushes outputs to screen.
 
 #include <string>
 #include "tracer/core/color.h"
+#include "tracer/core/themes.h"
 
 namespace tracer {
 namespace core {
@@ -18,12 +19,12 @@ namespace core {
 class Tracer {
  public:
   Tracer(int argc,                  // [argc, argv] are required
-         char** argv,               // by glut libarary (glutInit).
+         char** argv,               // by freeglut libarary (glutInit).
          float window_width,
          float window_height,
          float speed,
          const std::string& window_title,
-         const Color& window_background);
+         const core::Theme& theme = DEFALUT_THEME);
   ~Tracer();
 
   // Update tracer data, and visualize all changes happened.
@@ -40,7 +41,7 @@ class Tracer {
   // Examples:
   //    notify(0);
   //    notify(0, 0.5);
-  virtual void notify(size_t index, float speed = -1) = 0;
+  virtual void notify(int index, float speed = -1) = 0;
 
   // Select the element with the specified index,
   // which means to mark the element with a different color.
@@ -48,7 +49,7 @@ class Tracer {
   // Examples:
   //    select(0);
   //    select(0, 0.5);
-  virtual void select(size_t index, float speed = -1) = 0;
+  virtual void select(int index, float speed = -1) = 0;
 
   // Deselect the element with the specified index,
   // which means to mark the element with its previous color.
@@ -59,12 +60,13 @@ class Tracer {
   // Examples:
   //    deselect(0);
   //    deselect(0, 0.5);
-  virtual void deselect(size_t index, float speed = -1) = 0;
+  virtual void deselect(int index, float speed = -1) = 0;
 
  protected:
   float window_width_;
   float window_height_;
   float speed_;
+  core::Theme theme_;
 
   // FLush the screen with a new iteration of render and delay
   // the screen for the specified amount of time (speed).

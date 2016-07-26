@@ -39,10 +39,10 @@ void draw_rectangle(float x,
               background_color.get_blue(),
               background_color.get_alpha());
     glBegin(GL_POLYGON);
-        glVertex2f(x + padding,         y + padding);           // lower left
-        glVertex2f(x + padding,         y + height - padding);  // upper left
-        glVertex2f(x + width - padding, y + height - padding);  // upper right
-        glVertex2f(x + width - padding, y + padding);           // lower right
+      glVertex2f(x + padding,         y + padding);           // lower left
+      glVertex2f(x + padding,         y + height - padding);  // upper left
+      glVertex2f(x + width - padding, y + height - padding);  // upper right
+      glVertex2f(x + width - padding, y + padding);           // lower right
     glEnd();
 
     // Draw data.
@@ -94,15 +94,15 @@ void draw_rectangle(float x,
 
     glRasterPos2f(text_x_pos, text_y_pos);
     for (int i = 0; i < text.size(); i++) {
-        // Support '\n',
-        // if the next char is '\n' move to the next line.
-        if (text[i] == '\n') {
-          text_y_pos -= 15;
-          glRasterPos2f(text_x_pos, text_y_pos);
-          continue;
-        }
+      // Support '\n',
+      // if the next char is '\n' move to the next line.
+      if (text[i] == '\n') {
+        text_y_pos -= 15;
+        glRasterPos2f(text_x_pos, text_y_pos);
+        continue;
+      }
 
-        glutBitmapCharacter(GLUT_BITMAP_9_BY_15, text[i]);
+      glutBitmapCharacter(GLUT_BITMAP_9_BY_15, text[i]);
     }
 }
 

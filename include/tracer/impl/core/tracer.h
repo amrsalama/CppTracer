@@ -22,6 +22,7 @@ int Tracer::window_count_ = 0;
 float Tracer::window_x_position_ = 100;
 float Tracer::window_y_position_ = 100;
 
+
 // Constructor
 Tracer::Tracer(int argc,
                char** argv,
@@ -29,10 +30,11 @@ Tracer::Tracer(int argc,
                float window_height,
                float speed,
                const std::string& window_title,
-               const Color& window_background) : kWindowMargin(50.0) {
+               const Theme& theme) : kWindowMargin(50.0) {
   window_width_ = window_width;
   window_height_ = window_height;
   speed_ = speed;
+  theme_ = theme;
 
   // Only call glutInit function first time the tracer is created,
   // this allows multiple tracers to be created with glut been
@@ -44,10 +46,10 @@ Tracer::Tracer(int argc,
   glutInitWindowPosition(window_x_position_, window_y_position_);
   window_id_ = glutCreateWindow(window_title.c_str());
 
-  glClearColor(window_background.get_red(),
-               window_background.get_green(),
-               window_background.get_blue(),
-               window_background.get_alpha());
+  glClearColor(theme.tracer_background_color.get_red(),
+               theme.tracer_background_color.get_green(),
+               theme.tracer_background_color.get_blue(),
+               theme.tracer_background_color.get_alpha());
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
   glOrtho(0, window_width_, 0, window_height_, 0, 1.0);
@@ -59,6 +61,7 @@ Tracer::Tracer(int argc,
   // TODO(@salama): Find a better placement method.
   window_y_position_ += (window_height_ + kWindowMargin);
 }
+
 
 // Destructor
 Tracer::~Tracer() {
@@ -73,6 +76,8 @@ Tracer::~Tracer() {
     glutExit();
 }
 
+
+// Flush
 void Tracer::flush(float speed, int index) {
   // Set the focus on this tracer window so that the following drawing will
   // (render) will be in this tracer.

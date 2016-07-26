@@ -29,10 +29,10 @@ class ArrayTracer : public core::Tracer {
   //    char char_array[3] = {'A', 'B', 'C'};
   //    tracer::ArrayTracer<char> char_tracer(char_array, 3);
   ArrayTracer(T* array,
-              size_t size,
+              int size,
               float speed = 0.5,
-              std::string window_title = "Array tracer",
-              core::Theme theme = DEFALUT_THEME);
+              const std::string& window_title = "Array tracer",
+              const core::Theme& theme = DEFALUT_THEME);
   ~ArrayTracer();
 
   // Override update abstract method.
@@ -51,7 +51,7 @@ class ArrayTracer : public core::Tracer {
   // Examples:
   //    notify(0);
   //    notify(0, 0.5);
-  void notify(size_t index, float speed = -1);
+  void notify(int index, float speed = -1);
 
   // Override select abstract method.
   // Select array element with the specified index,
@@ -60,7 +60,7 @@ class ArrayTracer : public core::Tracer {
   // Examples:
   //    select(0);
   //    select(0, 0.5);
-  void select(size_t index, float speed = -1);
+  void select(int index, float speed = -1);
 
   // Override deselect abstract method.
   // Deselect array element with the specified index,
@@ -71,15 +71,14 @@ class ArrayTracer : public core::Tracer {
   // Examples:
   //    deselect(0);
   //    deselect(0, 0.5);
-  void deselect(size_t index, float speed = -1);
+  void deselect(int index, float speed = -1);
 
  private:
   const float kRectangleWidth, kRectangleHeight, kWindowPadding;
-  T* array_ptr;
-  int size_;
-  std::vector<T> array_;
+  T* array_ptr;               // pointer to the original array
+  int size_;                  // array size
+  std::vector<T> array_;      // copy of original array data
   std::vector<core::VisualizedElement> elements_;
-  core::Theme theme_;
 
   // Override render abstract method.
   void render(int index = -1);
