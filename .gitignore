@@ -1,3 +1,4 @@
 *.o
 *.gch
+lib
 build
