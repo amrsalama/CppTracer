@@ -1,5 +1,5 @@
-#ifndef INCLUDE_TRACER_IMPL_CORE_UTILITY_GENERAL_H_
-#define INCLUDE_TRACER_IMPL_CORE_UTILITY_GENERAL_H_
+#ifndef INCLUDE_TRACER_IMPL_CORE_UTILITY_GENERAL_IMPL_H_
+#define INCLUDE_TRACER_IMPL_CORE_UTILITY_GENERAL_IMPL_H_
 
 // Copyright © 2016.
 // Contributors to this file are:
@@ -77,4 +77,4 @@ void delay(float seconds) {
 }  // namespace core
 }  // namespace tracer
 
-#endif  // INCLUDE_TRACER_IMPL_CORE_UTILITY_GENERAL_H_
+#endif  // INCLUDE_TRACER_IMPL_CORE_UTILITY_GENERAL_IMPL_H_

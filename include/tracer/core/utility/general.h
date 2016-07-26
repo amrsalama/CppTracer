@@ -48,6 +48,6 @@ inline void delay(float seconds);
 }  // namespace tracer
 
 // Defer the definition in an implementation file.
-#include "tracer/impl/core/utility/general.h"
+#include "tracer/impl/core/utility/general_impl.h"
 
 #endif  // INCLUDE_TRACER_CORE_UTILITY_GENERAL_H_

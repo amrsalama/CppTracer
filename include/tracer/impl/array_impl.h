@@ -1,5 +1,5 @@
-#ifndef INCLUDE_TRACER_IMPL_ARRAY_H_
-#define INCLUDE_TRACER_IMPL_ARRAY_H_
+#ifndef INCLUDE_TRACER_IMPL_ARRAY_IMPL_H_
+#define INCLUDE_TRACER_IMPL_ARRAY_IMPL_H_
 
 // Copyright © 2016.
 // Contributors to this file are:
@@ -167,4 +167,4 @@ void ArrayTracer<T>::deselect(int index, float speed) {
 
 }  // namespace tracer
 
-#endif  // INCLUDE_TRACER_IMPL_ARRAY_H_
+#endif  // INCLUDE_TRACER_IMPL_ARRAY_IMPL_H_

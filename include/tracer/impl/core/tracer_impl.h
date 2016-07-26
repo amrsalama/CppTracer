@@ -1,5 +1,5 @@
-#ifndef INCLUDE_TRACER_IMPL_CORE_TRACER_H_
-#define INCLUDE_TRACER_IMPL_CORE_TRACER_H_
+#ifndef INCLUDE_TRACER_IMPL_CORE_TRACER_IMPL_H_
+#define INCLUDE_TRACER_IMPL_CORE_TRACER_IMPL_H_
 
 // Copyright © 2016.
 // Contributors to this file are:
@@ -101,4 +101,4 @@ void Tracer::flush(float speed, int index) {
 }  // namespace core
 }  // namespace tracer
 
-#endif  // INCLUDE_TRACER_IMPL_CORE_TRACER_H_
+#endif  // INCLUDE_TRACER_IMPL_CORE_TRACER_IMPL_H_

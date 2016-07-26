@@ -1,5 +1,5 @@
-#ifndef INCLUDE_TRACER_IMPL_CORE_UTILITY_GL_H_
-#define INCLUDE_TRACER_IMPL_CORE_UTILITY_GL_H_
+#ifndef INCLUDE_TRACER_IMPL_CORE_UTILITY_GL_IMPL_H_
+#define INCLUDE_TRACER_IMPL_CORE_UTILITY_GL_IMPL_H_
 
 // Copyright © 2016.
 // Contributors to this file are:
@@ -111,4 +111,4 @@ void draw_rectangle(float x,
 }  // namespace core
 }  // namespace tracer
 
-#endif  // INCLUDE_TRACER_IMPL_CORE_UTILITY_GL_H_
+#endif  // INCLUDE_TRACER_IMPL_CORE_UTILITY_GL_IMPL_H_
