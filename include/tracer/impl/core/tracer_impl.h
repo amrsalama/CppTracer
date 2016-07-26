@@ -82,6 +82,7 @@ void Tracer::flush(float speed, int index) {
   // Set the focus on this tracer window so that the following drawing will
   // (render) will be in this tracer.
   glutSetWindow(window_id_);
+  glutMainLoopEvent();  // processes a single iteration in the freeglut loop
 
   for (int i = 0; i < 5; i++) {  // reduce the occurrence of semi-render problem
     if (index < 0) {  // negative value means render all the tracer data

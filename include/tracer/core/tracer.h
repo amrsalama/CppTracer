@@ -68,6 +68,7 @@ class Tracer {
   float speed_;
   core::Theme theme_;
 
+  // This method is the alternative to glutMainLoop().
   // FLush the screen with a new iteration of render and delay
   // the screen for the specified amount of time (speed).
   // usend in every display method (e.g. notify, select, ...).
