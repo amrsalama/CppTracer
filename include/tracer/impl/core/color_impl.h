@@ -9,6 +9,8 @@
 // Implementation of color.h header file.
 
 #include "tracer/core/color.h"
+#include <cmath>
+#include <string>
 
 namespace tracer {
 namespace core {
@@ -32,6 +34,19 @@ Color::Color(int red, int green, int blue, int alpha) {
   green_ = check_constraints(green) / 255.0;
   blue_  = check_constraints(blue) / 255.0;
   alpha_ = check_constraints(alpha) / 255.0;
+}
+
+Color::Color(std::string value) {
+  if (value[0] == '#')
+    value.erase(0, 1);
+
+  red_   = check_constraints(hexa_to_decimal(value.substr(0, 2))) / 255.0;
+  green_ = check_constraints(hexa_to_decimal(value.substr(2, 2))) / 255.0;
+  blue_  = check_constraints(hexa_to_decimal(value.substr(4, 2))) / 255.0;
+  if (value.length() > 6)
+    alpha_ = check_constraints(hexa_to_decimal(value.substr(6, 2))) / 255.0;
+  else
+    alpha_ = 1.0;
 }
 
 
@@ -66,6 +81,29 @@ int Color::check_constraints(int value) {
   if (value < 0) value = 0;
   else if (value > 255) value = 255;
   return value;
+}
+
+
+int Color::hexa_to_decimal(std::string hexa) {
+  int int_value = 0;
+  for (int i = 0; i < hexa.length(); i++) {
+    char c = hexa[i];  // char by char
+    // Convert small letters to capital letters.
+    if (c >= 'a' && c <= 'b')
+      c -= ('a'-'A');
+
+    int x;  // integer value of c
+    // convert char(hexa) to integer(decimal).
+    if (c >= 'A' && c <= 'F') {
+      x = static_cast<int>(c-'A') + 10;
+    } else {
+      x = static_cast<int>(c-'0');
+    }
+
+    // (_ * 16^0) + (_ * 16^1) + (_ * 16^2) + ...
+    int_value += (x * static_cast<int>(pow(16, i)));
+  }
+  return int_value;
 }
 
 }  // namespace core

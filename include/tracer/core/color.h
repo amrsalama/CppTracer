@@ -8,6 +8,8 @@
 //
 // Color datatype, supports RGBA values.
 
+#include <string>
+
 namespace tracer {
 namespace core {
 
@@ -25,6 +27,11 @@ class Color {
   // each channel (red, green, ...) should
   // have an integer value from 0 to 255
   Color(int red, int green, int blue, int alpha = 255);
+
+  // Constructor for hexa values as string.
+  // Hexa value from "#00000000" to "#FFFFFFFF".
+  // Possible values examples: #336699, #336699FF, 336699, 336699FF
+  explicit Color(std::string value);
 
   // Red channel getter/setter.
   inline float get_red() const;
@@ -66,6 +73,13 @@ class Color {
   //    check_constraints(210);    => 255
   //    check_constraints(-50);    => 0
   inline int check_constraints(int value);
+
+  // Converts haxadecimal values to decimals.
+  //
+  // Examples:
+  //    hexa_to_decimal("FF");     => 255
+  //    hexa_to_decimal("33");     => 51
+  int hexa_to_decimal(std::string hexa);
 };
 
 }  // namespace core
