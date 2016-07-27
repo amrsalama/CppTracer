@@ -36,27 +36,24 @@ class ArrayTracer : public core::Tracer {
   ~ArrayTracer();
 
   // Override update abstract methods.
-  void update();
+  using Tracer::update;    // avoid name hiding
   void update(float speed);
 
   // Override notify abstract methods.
-  void notify(int index);
+  using Tracer::notify;    // avoid name hiding
   void notify(int index, float speed);
-  void notify(int index, double speed);
   void notify(int from_index, int to_index);
   void notify(int from_index, int to_index, float speed);
 
   // Override select abstract methods.
-  void select(int index);
+  using Tracer::select;    // avoid name hiding
   void select(int index, float speed);
-  void select(int index, double speed);
   void select(int from_index, int to_index);
   void select(int from_index, int to_index, float speed);
 
   // Override deselect abstract methods.
-  void deselect(int index);
+  using Tracer::deselect;  // avoid name hiding
   void deselect(int index, float speed);
-  void deselect(int index, double speed);
   void deselect(int from_index, int to_index);
   void deselect(int from_index, int to_index, float speed);
 

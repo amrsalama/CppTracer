@@ -9,6 +9,7 @@
 // The base abstract tracer class, defines the core functionality of the tracer.
 // Handles freeglut windows initialization, and flushes outputs to screen.
 
+#include <iostream>
 #include <string>
 #include "tracer/core/color.h"
 #include "tracer/core/themes.h"
@@ -32,7 +33,7 @@ class Tracer {
   // Examples:
   //    update();
   //    update(0.5);
-  virtual void update() = 0;
+  inline void update();
   virtual void update(float speed) = 0;
 
   // Notify element with the specified index,
@@ -45,9 +46,9 @@ class Tracer {
   //    notify(0, 0.5);     notify index 0 for 0.5 second
   //    notify(0, 5);       notify range from 0 to 5 with default speed
   //    notify(0, 5, 0.5);  notify range from 0 to 5 for 0.5 second
-  virtual void notify(int index) = 0;
+  inline void notify(int index);
+  inline void notify(int index, double speed);
   virtual void notify(int index, float speed) = 0;
-  virtual void notify(int index, double speed) = 0;
 
   // Select element with the specified index,
   // which means to mark the element with a different color.
@@ -58,9 +59,9 @@ class Tracer {
   //    select(0, 0.5);     select index 0 for 0.5 second
   //    select(0, 5);       select range from 0 to 5 with default speed
   //    select(0, 5, 0.5);  select range from 0 to 5 for 0.5 second
-  virtual void select(int index) = 0;
+  inline void select(int index);
+  inline void select(int index, double speed);
   virtual void select(int index, float speed) = 0;
-  virtual void select(int index, double speed) = 0;
 
   // Deselect the element with the specified index,
   // which means to mark the element with its previous color.
@@ -74,9 +75,9 @@ class Tracer {
   //    deselect(0, 0.5);     dselect index 0 for 0.5 second
   //    deselect(0, 5);       dselect range from 0 to 5 with default speed
   //    deselect(0, 5, 0.5);  dselect range from 0 to 5 for 0.5 second
-  virtual void deselect(int index) = 0;
+  inline void deselect(int index);
+  inline void deselect(int index, double speed);
   virtual void deselect(int index, float speed) = 0;
-  virtual void deselect(int index, double speed) = 0;
 
  protected:
   float window_width_;

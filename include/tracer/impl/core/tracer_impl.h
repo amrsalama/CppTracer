@@ -99,6 +99,30 @@ void Tracer::flush(float speed, int index) {
   }
 }
 
+
+// visualization methods with default values.
+void Tracer::update() {
+  update(speed_);
+}
+void Tracer::notify(int index) {
+  notify(index, speed_);
+}
+void Tracer::notify(int index, double speed) {
+  notify(index, static_cast<float>(speed));
+}
+void Tracer::select(int index) {
+  select(index, speed_);
+}
+void Tracer::select(int index, double speed) {
+  select(index, static_cast<float>(speed));
+}
+void Tracer::deselect(int index) {
+  deselect(index, speed_);
+}
+void Tracer::deselect(int index, double speed) {
+  deselect(index, static_cast<float>(speed));
+}
+
 }  // namespace core
 }  // namespace tracer
 

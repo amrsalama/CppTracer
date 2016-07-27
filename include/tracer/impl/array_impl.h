@@ -84,11 +84,6 @@ void ArrayTracer<T>::render(int index) {
 
 // Update visualization method
 template<typename T>
-void ArrayTracer<T>::update() {
-  update(speed_);
-}
-
-template<typename T>
 void ArrayTracer<T>::update(float speed) {
   // Get all changed elements indices.
   std::vector<int> changed_elements_indices;
@@ -135,11 +130,6 @@ void ArrayTracer<T>::update(float speed) {
 
 // Notify visualization method
 template<typename T>
-void ArrayTracer<T>::notify(int index) {
-  notify(index, speed_);  // default speed
-}
-
-template<typename T>
 void ArrayTracer<T>::notify(int index, float speed) {
   core::VisualizedElement current_style = elements_[index];  // temp
 
@@ -150,12 +140,6 @@ void ArrayTracer<T>::notify(int index, float speed) {
   // Flash again to its previous style.
   elements_[index] = current_style;
   flush(speed / 2.0, index);
-}
-
-// Solve the problem of overloaded FUNCTION_NAME is ambiguous.
-template<typename T>
-void ArrayTracer<T>::notify(int index, double speed) {
-  notify(index, static_cast<float>(speed));
 }
 
 template<typename T>
@@ -183,20 +167,9 @@ void ArrayTracer<T>::notify(int from_index, int to_index, float speed) {
 
 // Select visualization methods
 template<typename T>
-void ArrayTracer<T>::select(int index) {
-  select(index, speed_);  // default speed
-}
-
-template<typename T>
 void ArrayTracer<T>::select(int index, float speed) {
   elements_[index] = theme_.selected;
   flush(speed, index);
-}
-
-// Solve the problem of overloaded FUNCTION_NAME is ambiguous.
-template<typename T>
-void ArrayTracer<T>::select(int index, double speed) {
-  select(index, static_cast<float>(speed));
 }
 
 template<typename T>
@@ -216,20 +189,9 @@ void ArrayTracer<T>::select(int from_index, int to_index, float speed) {
 
 // Deselect visualization method
 template<typename T>
-void ArrayTracer<T>::deselect(int index) {
-  deselect(index, speed_);  // default speed
-}
-
-template<typename T>
 void ArrayTracer<T>::deselect(int index, float speed) {
   elements_[index] = theme_.normal;
   flush(speed, index);
-}
-
-// Solve the problem of overloaded FUNCTION_NAME is ambiguous.
-template<typename T>
-void ArrayTracer<T>::deselect(int index, double speed) {
-  deselect(index, static_cast<float>(speed));
 }
 
 template<typename T>
