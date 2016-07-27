@@ -103,7 +103,8 @@ class ArrayTracer : public core::Tracer {
   std::vector<core::VisualizedElement> elements_;
 
   // Override render abstract method.
-  void render(int index = -1);
+  void render();
+  void render(int index);
 };
 
 }  // namespace tracer

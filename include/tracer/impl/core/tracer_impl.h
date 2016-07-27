@@ -93,9 +93,9 @@ void Tracer::flush(float speed, int index) {
   }
 
   if (speed < 0) {
-    core::utility::general::delay(speed_);
+    core::utility::general::delay(speed_);  // default speed
   } else {
-    core::utility::general::delay(speed);   // default speed
+    core::utility::general::delay(speed);
   }
 }
 

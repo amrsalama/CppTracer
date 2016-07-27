@@ -48,34 +48,36 @@ template<typename T>
 ArrayTracer<T>::~ArrayTracer() {}
 
 
-// Overloaded render method
+// Overloaded render method,
+// Render all the array.
 template<typename T>
-void ArrayTracer<T>::render(int index) {
+void ArrayTracer<T>::render() {
   float beginning_x = kWindowPadding;
-
-  if (index < 0) {                   // render all the array
-    glClear(GL_COLOR_BUFFER_BIT);    // clear color buffer
-    for (int i = 0; i < size_; i++) {
-      core::utility::gl
-      ::draw_rectangle((beginning_x + i * kRectangleWidth),
-                       (window_height_ / 2.0 - kRectangleHeight / 2.0),
-                       kRectangleWidth,
-                       kRectangleHeight,
-                       array_[i],
-                       elements_[i].background_color,
-                       elements_[i].font_color);
-    }
-  } else {
+  glClear(GL_COLOR_BUFFER_BIT);    // clear color buffer
+  for (int i = 0; i < size_; i++) {
     core::utility::gl
-    ::draw_rectangle((beginning_x + index * kRectangleWidth),
+    ::draw_rectangle((beginning_x + i * kRectangleWidth),
                      (window_height_ / 2.0 - kRectangleHeight / 2.0),
                      kRectangleWidth,
                      kRectangleHeight,
-                     array_[index],
-                     elements_[index].background_color,
-                     elements_[index].font_color);
+                     array_[i],
+                     elements_[i].background_color,
+                     elements_[i].font_color);
   }
+  glFlush();
+}
 
+template<typename T>
+void ArrayTracer<T>::render(int index) {
+  float beginning_x = kWindowPadding;
+  core::utility::gl
+  ::draw_rectangle((beginning_x + index * kRectangleWidth),
+                   (window_height_ / 2.0 - kRectangleHeight / 2.0),
+                   kRectangleWidth,
+                   kRectangleHeight,
+                   array_[index],
+                   elements_[index].background_color,
+                   elements_[index].font_color);
   glFlush();
 }
 

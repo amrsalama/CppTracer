@@ -103,15 +103,14 @@ class Tracer {
 
   // Abstract render method, each subclass has to implement its own
   // render method (e.g. array, matrix, graph, ...).
-  //
-  // Index is the index of the element to be rendered,
-  // negative value means render all the tracer data.
+  // You can pass the index of the element to be rendered.
   //
   // This is helping in optimize the number of render operations,
   // just imagine that you want to visualize 1000 elements of an array,
   // then you have to draw them each time, but fortunately we can rerender
   // the changed element only which has this index.
-  virtual void render(int index = -1) = 0;
+  virtual void render() = 0;
+  virtual void render(int index) = 0;
 
  private:
   const float kWindowMargin;        // Margin between tracers window.
