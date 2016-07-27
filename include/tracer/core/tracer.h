@@ -32,35 +32,51 @@ class Tracer {
   // Examples:
   //    update();
   //    update(0.5);
-  virtual void update(float speed = -1) = 0;
+  virtual void update() = 0;
+  virtual void update(float speed) = 0;
 
   // Notify element with the specified index,
   // which means to flash the element with a different color then
   // flash again to its previous color.
+  // We can select range of indices.
   //
   // Examples:
-  //    notify(0);
-  //    notify(0, 0.5);
-  virtual void notify(int index, float speed = -1) = 0;
+  //    notify(0);          notify index 0 with the defulat speed
+  //    notify(0, 0.5);     notify index 0 for 0.5 second
+  //    notify(0, 5);       notify range from 0 to 5 with default speed
+  //    notify(0, 5, 0.5);  notify range from 0 to 5 for 0.5 second
+  virtual void notify(int index) = 0;
+  virtual void notify(int index, float speed) = 0;
+  virtual void notify(int index, double speed) = 0;
 
-  // Select the element with the specified index,
+  // Select element with the specified index,
   // which means to mark the element with a different color.
+  // We can select range of indices.
   //
   // Examples:
-  //    select(0);
-  //    select(0, 0.5);
-  virtual void select(int index, float speed = -1) = 0;
+  //    select(0);          select index 0 with the defulat speed
+  //    select(0, 0.5);     select index 0 for 0.5 second
+  //    select(0, 5);       select range from 0 to 5 with default speed
+  //    select(0, 5, 0.5);  select range from 0 to 5 for 0.5 second
+  virtual void select(int index) = 0;
+  virtual void select(int index, float speed) = 0;
+  virtual void select(int index, double speed) = 0;
 
   // Deselect the element with the specified index,
   // which means to mark the element with its previous color.
+  // We can deselect range of indices.
   //
   // This is the opposite method to select,
   // so whenever you select an element you may want to deselect it agian.
   //
   // Examples:
-  //    deselect(0);
-  //    deselect(0, 0.5);
-  virtual void deselect(int index, float speed = -1) = 0;
+  //    deselect(0);          dselect index 0 with the defulat speed
+  //    deselect(0, 0.5);     dselect index 0 for 0.5 second
+  //    deselect(0, 5);       dselect range from 0 to 5 with default speed
+  //    deselect(0, 5, 0.5);  dselect range from 0 to 5 for 0.5 second
+  virtual void deselect(int index) = 0;
+  virtual void deselect(int index, float speed) = 0;
+  virtual void deselect(int index, double speed) = 0;
 
  protected:
   float window_width_;

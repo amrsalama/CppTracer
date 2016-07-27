@@ -41,37 +41,59 @@ class ArrayTracer : public core::Tracer {
   // Examples:
   //    update();
   //    update(0.5);
-  void update(float speed = -1);
+  void update();
+  void update(float speed);
 
-  // Override notify abstract method.
+  // Override notify abstract methods.
   // Notify array element with the specified index,
   // which means to flash the element with a different color then
   // flash again to its previous color.
+  // We can notify range of indices.
   //
   // Examples:
-  //    notify(0);
-  //    notify(0, 0.5);
-  void notify(int index, float speed = -1);
+  //    notify(0);          notify index 0 with the defulat speed
+  //    notify(0, 0.5);     notify index 0 for 0.5 second
+  //    notify(0, 5);       notify range from 0 to 5 with default speed
+  //    notify(0, 5, 0.5);  notify range from 0 to 5 for 0.5 second
+  void notify(int index);
+  void notify(int index, float speed);
+  void notify(int index, double speed);
+  void notify(int from_index, int to_index);
+  void notify(int from_index, int to_index, float speed);
 
-  // Override select abstract method.
+  // Override select abstract methods.
   // Select array element with the specified index,
   // which means to mark the element with a different color.
+  // We can select range of indices.
   //
   // Examples:
-  //    select(0);
-  //    select(0, 0.5);
-  void select(int index, float speed = -1);
+  //    select(0);          select index 0 with the defulat speed
+  //    select(0, 0.5);     select index 0 for 0.5 second
+  //    select(0, 5);       select range from 0 to 5 with default speed
+  //    select(0, 5, 0.5);  select range from 0 to 5 for 0.5 second
+  void select(int index);
+  void select(int index, float speed);
+  void select(int index, double speed);
+  void select(int from_index, int to_index);
+  void select(int from_index, int to_index, float speed);
 
-  // Override deselect abstract method.
+  // Override deselect abstract methods.
   // Deselect array element with the specified index,
   // which means to mark the element with its previous color.
+  // We can deselect range of indices.
   // This is the opposite method to select,
   // so whenever you select an element you may want to deselect it agian.
   //
   // Examples:
-  //    deselect(0);
-  //    deselect(0, 0.5);
-  void deselect(int index, float speed = -1);
+  //    deselect(0);          dselect index 0 with the defulat speed
+  //    deselect(0, 0.5);     dselect index 0 for 0.5 second
+  //    deselect(0, 5);       dselect range from 0 to 5 with default speed
+  //    deselect(0, 5, 0.5);  dselect range from 0 to 5 for 0.5 second
+  void deselect(int index);
+  void deselect(int index, float speed);
+  void deselect(int index, double speed);
+  void deselect(int from_index, int to_index);
+  void deselect(int from_index, int to_index, float speed);
 
  private:
   const float kRectangleWidth, kRectangleHeight, kWindowPadding;

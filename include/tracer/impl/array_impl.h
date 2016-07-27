@@ -82,9 +82,12 @@ void ArrayTracer<T>::render(int index) {
 
 // Update visualization method
 template<typename T>
-void ArrayTracer<T>::update(float speed) {
-  speed = (speed > 0 ? speed : speed_);
+void ArrayTracer<T>::update() {
+  update(speed_);
+}
 
+template<typename T>
+void ArrayTracer<T>::update(float speed) {
   // Get all changed elements indices.
   std::vector<int> changed_elements_indices;
   std::vector<core::VisualizedElement> current_styles;  // temps
@@ -130,8 +133,12 @@ void ArrayTracer<T>::update(float speed) {
 
 // Notify visualization method
 template<typename T>
+void ArrayTracer<T>::notify(int index) {
+  notify(index, speed_);  // default speed
+}
+
+template<typename T>
 void ArrayTracer<T>::notify(int index, float speed) {
-  speed = (speed > 0 ? speed : speed_);
   core::VisualizedElement current_style = elements_[index];  // temp
 
   // Flash the element notified style.
@@ -143,26 +150,98 @@ void ArrayTracer<T>::notify(int index, float speed) {
   flush(speed / 2.0, index);
 }
 
+// Solve the problem of overloaded FUNCTION_NAME is ambiguous.
+template<typename T>
+void ArrayTracer<T>::notify(int index, double speed) {
+  notify(index, static_cast<float>(speed));
+}
 
-// Select visualization method
+template<typename T>
+void ArrayTracer<T>::notify(int from_index, int to_index) {
+  notify(from_index, to_index, speed_);
+}
+
+template<typename T>
+void ArrayTracer<T>::notify(int from_index, int to_index, float speed) {
+  std::vector<core::VisualizedElement> current_styles;  // temps
+  for (int i = from_index; i <= to_index; i++) {
+    current_styles.push_back(elements_[i]);
+    elements_[i] = theme_.notified;
+    flush(0.0, i);
+  }
+  flush(speed / 2.0, to_index);
+
+  for (int i = from_index, j = 0; i <= to_index; i++, j++) {
+    elements_[i] = current_styles[j];
+    flush(0.0, i);
+  }
+  flush(speed / 2.0, to_index);
+}
+
+
+// Select visualization methods
+template<typename T>
+void ArrayTracer<T>::select(int index) {
+  select(index, speed_);  // default speed
+}
+
 template<typename T>
 void ArrayTracer<T>::select(int index, float speed) {
-  speed = (speed > 0 ? speed : speed_);
-
-  // Mark the element with a selected style.
   elements_[index] = theme_.selected;
   flush(speed, index);
+}
+
+// Solve the problem of overloaded FUNCTION_NAME is ambiguous.
+template<typename T>
+void ArrayTracer<T>::select(int index, double speed) {
+  select(index, static_cast<float>(speed));
+}
+
+template<typename T>
+void ArrayTracer<T>::select(int from_index, int to_index) {
+  select(from_index, to_index, speed_);
+}
+
+template<typename T>
+void ArrayTracer<T>::select(int from_index, int to_index, float speed) {
+  for (int i = from_index; i <= to_index; i++) {
+    elements_[i] = theme_.selected;
+    flush(0.0, i);
+  }
+  flush(speed, to_index);
 }
 
 
 // Deselect visualization method
 template<typename T>
-void ArrayTracer<T>::deselect(int index, float speed) {
-  speed = (speed > 0 ? speed : speed_);
+void ArrayTracer<T>::deselect(int index) {
+  deselect(index, speed_);  // default speed
+}
 
-  // Mark the element with its normal style.
+template<typename T>
+void ArrayTracer<T>::deselect(int index, float speed) {
   elements_[index] = theme_.normal;
   flush(speed, index);
+}
+
+// Solve the problem of overloaded FUNCTION_NAME is ambiguous.
+template<typename T>
+void ArrayTracer<T>::deselect(int index, double speed) {
+  deselect(index, static_cast<float>(speed));
+}
+
+template<typename T>
+void ArrayTracer<T>::deselect(int from_index, int to_index) {
+  deselect(from_index, to_index, speed_);
+}
+
+template<typename T>
+void ArrayTracer<T>::deselect(int from_index, int to_index, float speed) {
+  for (int i = from_index; i <= to_index; i++) {
+    elements_[i] = theme_.normal;
+    flush(0.0, i);
+  }
+  flush(speed, to_index);
 }
 
 }  // namespace tracer
