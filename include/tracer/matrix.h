@@ -20,7 +20,7 @@ namespace tracer {
 template<typename T, size_t RowSize, size_t ColumnSize>
 class MatrixTracer : public core::Tracer {
  public:
-  MatrixTracer(T matrix[RowSize][ColumnSize],
+  MatrixTracer(T (*matrix)[ColumnSize],
               float speed = 0.5,
               const std::string& window_title = "Matrix tracer",
               const core::Theme& theme = DEFALUT_THEME);
@@ -49,8 +49,24 @@ class MatrixTracer : public core::Tracer {
   std::vector<core::VisualizedElement> elements_;
 
   // Override render abstract method.
-  void render() {}
-  void render(int index) {}
+  void render();
+  void render(int index);
+
+  // We use this to methods (flatten and reshape) to handle the idea
+  // of flatten index instead of the real row index and column index of matrix.
+  // Which means if we have a matrix of size 2x3, we will have a flatten array
+  // of 6 elements instead.
+  //
+  // Examples:
+  //    if we have matrix of size 4x8,
+  //    flatten(0, 1);      => 1
+  //    flatten(3, 5);      => 29
+  inline int flatten(int row_index, int column_index);
+  // Examples:
+  //    if we have matrix of size 4x8,
+  //    reshape(1);         => pair<int>(0, 1)
+  //    reshape(29);        => pair<int>(3, 5)
+  inline std::pair<int, int> reshape(int index);
 };
 
 }  // namespace tracer
