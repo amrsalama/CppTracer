@@ -103,6 +103,121 @@ void MatrixTracer<T, RowSize, ColumnSize>::render(int index) {
 
 
 template<typename T, size_t RowSize, size_t ColumnSize>
+void MatrixTracer<T, RowSize, ColumnSize>::update(float speed) {
+  // Get all changed elements indices.
+  std::vector<int> changed_elements_indices;
+  std::vector<core::VisualizedElement> current_styles;  // temps
+  for (int i = 0; i < RowSize; i++) {
+    for (int j = 0; j < ColumnSize; j++) {
+      int index = flatten(i, j);
+      if (matrix_[index] != matrix_ptr[i][j]) {
+        changed_elements_indices.push_back(index);
+        current_styles.push_back(elements_[index]);
+      }
+    }
+  }
+
+  // If no changes happen just return.
+  if (changed_elements_indices.empty())
+    return;
+
+  int index;
+  // Update in 3 steps:
+  // 1. Mark all changed elements with updated style.
+  for (int i = 0; i < changed_elements_indices.size(); i++) {
+    index = changed_elements_indices[i];
+    elements_[index] = theme_.updated;
+    flush(0.0, index);  // flush the element to screen, we don't need to wait
+  }
+  flush(speed / 3.0, index);
+
+  // 2. Update array data.
+  for (int i = 0; i < changed_elements_indices.size(); i++) {
+    index = changed_elements_indices[i];
+    std::pair<int, int> row_column = reshape(index);
+    int row = row_column.first, column = row_column.second;
+
+    elements_[index] = theme_.updated2;
+    matrix_[index] = matrix_ptr[row][column];  // update array data
+    flush(0.0, index);  // flush the element to screen, we don't need to wait
+  }
+  flush(speed / 3.0, index);
+
+  // 3. Unmark all changed elements.
+  for (int i = 0; i < changed_elements_indices.size(); i++) {
+    index = changed_elements_indices[i];
+    elements_[index] = current_styles[i];
+    flush(0.0, index);  // flush the element to screen, we don't need to wait
+  }
+  flush(speed / 3.0, index);
+}
+
+
+template<typename T, size_t RowSize, size_t ColumnSize>
+void MatrixTracer<T, RowSize, ColumnSize>::
+notify(int row_index, int column_index) {
+  notify(flatten(row_index, column_index));
+}
+
+template<typename T, size_t RowSize, size_t ColumnSize>
+void MatrixTracer<T, RowSize, ColumnSize>::
+notify(int row_index, int column_index, float speed) {
+  notify(flatten(row_index, column_index), speed);
+}
+
+template<typename T, size_t RowSize, size_t ColumnSize>
+void MatrixTracer<T, RowSize, ColumnSize>::notify(int index, float speed) {
+  core::VisualizedElement current_style = elements_[index];  // temp
+
+  // Flash the element notified style.
+  elements_[index] = theme_.notified;
+  flush(speed / 2.0, index);
+
+  // Flash again to its previous style.
+  elements_[index] = current_style;
+  flush(speed / 2.0, index);
+}
+
+
+template<typename T, size_t RowSize, size_t ColumnSize>
+void MatrixTracer<T, RowSize, ColumnSize>::
+deselect(int row_index, int column_index) {
+  deselect(flatten(row_index, column_index));
+}
+
+template<typename T, size_t RowSize, size_t ColumnSize>
+void MatrixTracer<T, RowSize, ColumnSize>::
+deselect(int row_index, int column_index, float speed) {
+  deselect(flatten(row_index, column_index), speed);
+}
+
+template<typename T, size_t RowSize, size_t ColumnSize>
+void MatrixTracer<T, RowSize, ColumnSize>::deselect(int index, float speed) {
+  elements_[index] = theme_.normal;
+  flush(speed, index);
+}
+
+
+template<typename T, size_t RowSize, size_t ColumnSize>
+void MatrixTracer<T, RowSize, ColumnSize>::
+select(int row_index, int column_index) {
+  select(flatten(row_index, column_index));
+}
+
+template<typename T, size_t RowSize, size_t ColumnSize>
+void MatrixTracer<T, RowSize, ColumnSize>::
+select(int row_index, int column_index, float speed) {
+  select(flatten(row_index, column_index), speed);
+}
+
+template<typename T, size_t RowSize, size_t ColumnSize>
+void MatrixTracer<T, RowSize, ColumnSize>::select(int index, float speed) {
+  elements_[index] = theme_.selected;
+  flush(speed, index);
+}
+
+
+template<typename T, size_t RowSize, size_t ColumnSize>
 int MatrixTracer<T, RowSize, ColumnSize>::
 flatten(int row_index, int column_index) {
   return row_index * ColumnSize + column_index;

@@ -28,19 +28,25 @@ class MatrixTracer : public core::Tracer {
 
   // Override update abstract methods.
   using Tracer::update;    // avoid name hiding
-  void update(float speed) {}
+  void update(float speed);
 
   // Override notify abstract methods.
   using Tracer::notify;    // avoid name hiding
-  void notify(int index, float speed) {}
+  void notify(int index, float speed);
+  void notify(int row_index, int column_index);
+  void notify(int row_index, int column_index, float speed);
 
   // Override select abstract methods.
   using Tracer::select;    // avoid name hiding
-  void select(int index, float speed) {}
+  void select(int index, float speed);
+  void select(int row_index, int column_index);
+  void select(int row_index, int column_index, float speed);
 
   // Override deselect abstract methods.
   using Tracer::deselect;  // avoid name hiding
-  void deselect(int index, float speed) {}
+  void deselect(int index, float speed);
+  void deselect(int row_index, int column_index);
+  void deselect(int row_index, int column_index, float speed);
 
  private:
   const float kRectangleWidth, kRectangleHeight, kWindowPadding;
