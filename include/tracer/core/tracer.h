@@ -9,7 +9,6 @@
 // The base abstract tracer class, defines the core functionality of the tracer.
 // Handles freeglut windows initialization, and flushes outputs to screen.
 
-#include <iostream>
 #include <string>
 #include "tracer/core/color.h"
 #include "tracer/core/themes.h"
