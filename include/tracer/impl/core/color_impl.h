@@ -89,7 +89,7 @@ int Color::hexa_to_decimal(std::string hexa) {
   for (int i = 0; i < hexa.length(); i++) {
     char c = hexa[i];  // char by char
     // Convert small letters to capital letters.
-    if (c >= 'a' && c <= 'b')
+    if (c >= 'a' && c <= 'z')
       c -= ('a'-'A');
 
     int x;  // integer value of c
