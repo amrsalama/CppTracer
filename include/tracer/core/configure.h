@@ -10,12 +10,7 @@
 // defines OS type, compiler type, ...
 // to be used with system-specific code needs conditional includes.
 
-#if defined(__WIN32__)
-    || defined(_WIN32)
-    || defined(WIN32)
-    || defined(_WIN64)
-    || defined(__WINDOWS__)
-    || defined(__TOS_WIN__)
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) || defined(__WIN32__) || defined(_WIN64) || defined(__WINDOWS__) || defined(__TOS_WIN__)
 #define OS_WINDOWS
 #endif
 

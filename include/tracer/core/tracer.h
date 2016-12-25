@@ -87,7 +87,7 @@ class Tracer {
   // This method is the alternative to glutMainLoop().
   // FLush the screen with a new iteration of render and delay
   // the screen for the specified amount of time (speed).
-  // usend in every display method (e.g. notify, select, ...).
+  // used in every display method (e.g. notify, select, ...).
   //
   // If no speed specified or has negative value, the flush method will use
   // the default speed specified in tracer constructor.
