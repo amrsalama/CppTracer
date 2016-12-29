@@ -12,6 +12,7 @@
 #include <string>
 #include <vector>
 #include <utility>
+#include "tracer/core/visualized_element.h"
 #include "tracer/core/themes.h"
 #include "tracer/core/tracer.h"
 

@@ -13,6 +13,7 @@
 #include <vector>
 #include "GL/gl.h"
 #include "GL/freeglut.h"
+#include "tracer/core/visualized_element.h"
 #include "tracer/core/themes.h"
 #include "tracer/core/util/gl.h"
 
