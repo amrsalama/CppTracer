@@ -9,7 +9,6 @@
 // Themes file.
 
 #include "tracer/core/color.h"
-#include "tracer/core/visualized_element.h"
 
 namespace tracer {
 namespace core {
