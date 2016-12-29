@@ -81,7 +81,7 @@ class Color {
   // Examples:
   //    HexaToDecimal("FF");     => 255
   //    HexaToDecimal("33");     => 51
-  int HexaToDecimal(std::string hexa);
+  int HexaToDecimal(const std::string &hexa);
 };
 
 }  // namespace util

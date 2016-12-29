@@ -85,7 +85,7 @@ int Color::CheckConstraints(int value) {
 }
 
 
-int Color::HexaToDecimal(std::string hexa) {
+int Color::HexaToDecimal(const std::string &hexa) {
   int int_value = 0;
   for (int i = 0; i < hexa.length(); i++) {
     char c = hexa[i];  // char by char
@@ -101,8 +101,8 @@ int Color::HexaToDecimal(std::string hexa) {
       x = static_cast<int>(c-'0');
     }
 
-    // (_ * 16^0) + (_ * 16^1) + (_ * 16^2) + ...
-    int_value += (x * static_cast<int>(pow(16, i)));
+    // ... + (_ * 16^2) + (_ * 16^1) + (_ * 16^0)
+    int_value += (x * static_cast<int>(pow(16, (hexa.length() - i - 1))));
   }
   return int_value;
 }

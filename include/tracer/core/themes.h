@@ -50,31 +50,21 @@ struct Theme {
 
 // LightTheme (@salama).
 const core::Theme LIGHT_THEME
-  (core::util::Color(245, 245, 245),
-   core::State(core::util::Color(170, 170, 170),
-               core::util::Color(255, 255, 255)),
-   core::State(core::util::Color(239,  91, 110),
-               core::util::Color(255, 255, 255)),
-   core::State(core::util::Color(2,   168, 243),
-               core::util::Color(255, 255, 255)),
-   core::State(core::util::Color(64,  212, 126),
-               core::util::Color(255, 255, 255)),
-   core::State(core::util::Color(24,  172, 143),
-               core::util::Color(255, 255, 255)));
+  (core::util::Color("#F5F5F5"),
+   core::State(core::util::Color("#AAAAAA"), core::util::Color("#FFFFFF")),
+   core::State(core::util::Color("#EF5B6E"), core::util::Color("#FFFFFF")),
+   core::State(core::util::Color("#02A8F3"), core::util::Color("#FFFFFF")),
+   core::State(core::util::Color("#40D47E"), core::util::Color("#FFFFFF")),
+   core::State(core::util::Color("#18AC8F"), core::util::Color("#FFFFFF")));
 
 // DarkTheme (@salama).
 const core::Theme DARK_THEME
-  (core::util::Color(170, 170, 170),
-   core::State(core::util::Color(230, 230, 230),
-               core::util::Color(30, 30, 30)),
-   core::State(core::util::Color(255, 160, 160),
-               core::util::Color(255, 255, 255)),
-   core::State(core::util::Color(100, 200, 255),
-               core::util::Color(255, 255, 255)),
-   core::State(core::util::Color(50,  255, 150),
-               core::util::Color(255, 255, 255)),
-   core::State(core::util::Color(0,   200, 100),
-               core::util::Color(255, 255, 255)));
+  (core::util::Color("#AAAAAA"),
+   core::State(core::util::Color("#E6E6E6"), core::util::Color("#1E1E1E")),
+   core::State(core::util::Color("#FFA0A0"), core::util::Color("#FFFFFF")),
+   core::State(core::util::Color("#64C8FF"), core::util::Color("#FFFFFF")),
+   core::State(core::util::Color("#32FF96"), core::util::Color("#FFFFFF")),
+   core::State(core::util::Color("#00C864"), core::util::Color("#FFFFFF")));
 
 const core::Theme& DEFALUT_THEME = LIGHT_THEME;
 
