@@ -1,5 +1,5 @@
-#ifndef INCLUDE_TRACER_CORE_COLOR_H_
-#define INCLUDE_TRACER_CORE_COLOR_H_
+#ifndef INCLUDE_TRACER_CORE_UTIL_COLOR_H_
+#define INCLUDE_TRACER_CORE_UTIL_COLOR_H_
 
 // Copyright © 2016.
 // Contributors to this file are:
@@ -7,11 +7,13 @@
 //    ...
 //
 // Color datatype, supports RGBA values.
+// Saves red/green/blue/alpha values as floats to use them with freeglut.
 
 #include <string>
 
 namespace tracer {
 namespace core {
+namespace util {
 
 class Color {
  public:
@@ -60,32 +62,33 @@ class Color {
   // if not try to return the best possible value.
   //
   // Examples:
-  //    check_constraints(0.5);     => 0.5
-  //    check_constraints(2.1);     => 1.0
-  //    check_constraints(-0.5);    => 0.0
-  inline float check_constraints(float value);
+  //    CheckConstraints(0.5);     => 0.5
+  //    CheckConstraints(2.1);     => 1.0
+  //    CheckConstraints(-0.5);    => 0.0
+  inline float CheckConstraints(float value);
 
   // Check if value is between 0 and 255,
   // if not try to return the best possible value.
   //
   // Examples:
-  //    check_constraints(127);    => 127
-  //    check_constraints(210);    => 255
-  //    check_constraints(-50);    => 0
-  inline int check_constraints(int value);
+  //    CheckConstraints(127);    => 127
+  //    CheckConstraints(210);    => 255
+  //    CheckConstraints(-50);    => 0
+  inline int CheckConstraints(int value);
 
   // Converts haxadecimal values to decimals.
   //
   // Examples:
-  //    hexa_to_decimal("FF");     => 255
-  //    hexa_to_decimal("33");     => 51
-  int hexa_to_decimal(std::string hexa);
+  //    HexaToDecimal("FF");     => 255
+  //    HexaToDecimal("33");     => 51
+  int HexaToDecimal(std::string hexa);
 };
 
+}  // namespace util
 }  // namespace core
 }  // namespace tracer
 
 // Defer the definition in an implementation file.
-#include "tracer/impl/core/color_impl.h"
+#include "tracer/impl/core/util/color_impl.h"
 
-#endif  // INCLUDE_TRACER_CORE_COLOR_H_
+#endif  // INCLUDE_TRACER_CORE_UTIL_COLOR_H_

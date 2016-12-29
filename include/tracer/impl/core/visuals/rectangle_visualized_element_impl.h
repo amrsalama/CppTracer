@@ -26,7 +26,7 @@ RectangleVisualizedElement<T>::RectangleVisualizedElement(
 // Render implementation for rectangle elements
 template<typename T>
 void RectangleVisualizedElement<T>::render() {
-  core::util::gl::draw_rectangle(
+  core::util::gl::DrawRectangle(
     this->x_, this->y_,
     this->width_, this->height_,
     this->data_,

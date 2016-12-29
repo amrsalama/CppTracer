@@ -1,5 +1,5 @@
-#ifndef INCLUDE_TRACER_CORE_CONFIGURE_H_
-#define INCLUDE_TRACER_CORE_CONFIGURE_H_
+#ifndef INCLUDE_TRACER_CORE_CONFIG_H_
+#define INCLUDE_TRACER_CORE_CONFIG_H_
 
 // Copyright © 2016.
 // Contributors to this file are:
@@ -14,4 +14,4 @@
 #define OS_WINDOWS
 #endif
 
-#endif  // INCLUDE_TRACER_CORE_CONFIGURE_H_
+#endif  // INCLUDE_TRACER_CORE_CONFIG_H_

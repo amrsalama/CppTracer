@@ -70,7 +70,7 @@ void MatrixTracer<T, RowSize, ColumnSize>::render() {
   for (int i = RowSize - 1; i >= 0; i--) {
     for (int j = 0; j < ColumnSize; j++) {
       core::util::gl
-      ::draw_rectangle((beginning_x + j * kRectangleWidth),
+      ::DrawRectangle((beginning_x + j * kRectangleWidth),
                        (beginning_y - i * kRectangleHeight),
                        kRectangleWidth,
                        kRectangleHeight,
@@ -91,7 +91,7 @@ void MatrixTracer<T, RowSize, ColumnSize>::render(int index) {
   int row = row_column.first, column = row_column.second;
 
   core::util::gl
-  ::draw_rectangle((beginning_x + column * kRectangleWidth),
+  ::DrawRectangle((beginning_x + column * kRectangleWidth),
                    (beginning_y - row * kRectangleHeight),
                    kRectangleWidth,
                    kRectangleHeight,

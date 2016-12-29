@@ -10,7 +10,6 @@
 // Handles freeglut windows initialization, and flushes outputs to screen.
 
 #include <string>
-#include "tracer/core/color.h"
 #include "tracer/core/themes.h"
 
 namespace tracer {

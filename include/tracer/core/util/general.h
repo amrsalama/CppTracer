@@ -26,21 +26,21 @@ namespace general {
 // the floating-point output contains all possible digits.
 //
 // Examples:
-//    stringify('A');      => "A"
-//    stringify(true);     => "true"
-//    stringify(123.456);  => "123.456"
-template<typename T> inline std::string stringify(const T& data);
-template<> inline std::string stringify<bool>(const bool& data);
-template<> inline std::string stringify<double>(const double& data);
-template<> inline std::string stringify<float>(const float& data);
-template<> inline std::string stringify<long double>(const long double& data);
+//    Stringify('A');      => "A"
+//    Stringify(true);     => "true"
+//    Stringify(123.456);  => "123.456"
+template<typename T> inline std::string Stringify(const T& data);
+template<> inline std::string Stringify<bool>(const bool& data);
+template<> inline std::string Stringify<double>(const double& data);
+template<> inline std::string Stringify<float>(const float& data);
+template<> inline std::string Stringify<long double>(const long double& data);
 
 // Delay for a specific amount of time (in seconds).
 // Helps in control the speed of visualization.
 //
 // Examples:
-//    delay(0.5);
-inline void delay(float seconds);
+//    Delay(0.5);
+inline void Delay(float seconds);
 
 }  // namespace general
 }  // namespace util

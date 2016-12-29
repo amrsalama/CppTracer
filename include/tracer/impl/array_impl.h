@@ -56,7 +56,7 @@ void ArrayTracer<T>::render() {
   glClear(GL_COLOR_BUFFER_BIT);    // clear color buffer
   for (int i = 0; i < size_; i++) {
     core::util::gl
-    ::draw_rectangle((beginning_x + i * kRectangleWidth),
+    ::DrawRectangle((beginning_x + i * kRectangleWidth),
                      (window_height_ / 2.0 - kRectangleHeight / 2.0),
                      kRectangleWidth,
                      kRectangleHeight,
@@ -71,7 +71,7 @@ template<typename T>
 void ArrayTracer<T>::render(int index) {
   float beginning_x = kWindowPadding;
   core::util::gl
-  ::draw_rectangle((beginning_x + index * kRectangleWidth),
+  ::DrawRectangle((beginning_x + index * kRectangleWidth),
                    (window_height_ / 2.0 - kRectangleHeight / 2.0),
                    kRectangleWidth,
                    kRectangleHeight,

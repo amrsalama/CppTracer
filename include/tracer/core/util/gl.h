@@ -10,7 +10,7 @@
 // In general, this utilities define the basic shapes drawing with some
 // data visualization (e.g. rectangles, circles, arrows, ...).
 
-#include "tracer/core/color.h"
+#include "tracer/core/util/color.h"
 
 namespace tracer {
 namespace core {
@@ -22,18 +22,18 @@ namespace gl {
 // This is a useful utility to be used in many tracers (e.g. array, matrix, ...)
 //
 // Examples:
-//    draw_rectangle(0, 0, 100, 100, 11, Color(255, 0, 0));
-//    draw_rectangle(0, 0, 100, 100, 22, Color(255, 0, 0), Color(0, 0, 0));
-//    draw_rectangle(0, 0, 100, 100, 33, Color(255, 0, 0), Color(0, 0, 0), 5);
+//    DrawRectangle(0, 0, 100, 100, 11, Color(255, 0, 0));
+//    DrawRectangle(0, 0, 100, 100, 22, Color(255, 0, 0), Color(0, 0, 0));
+//    DrawRectangle(0, 0, 100, 100, 33, Color(255, 0, 0), Color(0, 0, 0), 5);
 template<typename T>
-void draw_rectangle(float x,
-                    float y,
-                    float width,
-                    float height,
-                    const T& data,
-                    const Color& background_color = Color(70, 70, 70),
-                    const Color& font_color = Color(255, 255, 255),
-                    int padding = 2);
+void DrawRectangle(float x,
+                   float y,
+                   float width,
+                   float height,
+                   const T& data,
+                   const Color& background_color = Color(70, 70, 70),
+                   const Color& font_color = Color(255, 255, 255),
+                   int padding = 2);
 
 }  // namespace gl
 }  // namespace util

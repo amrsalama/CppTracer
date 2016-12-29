@@ -13,7 +13,7 @@
 #include <string>
 #include "GL/gl.h"
 #include "GL/freeglut.h"
-#include "tracer/core/color.h"
+#include "tracer/core/util/color.h"
 #include "tracer/core/util/general.h"
 
 namespace tracer {
@@ -22,7 +22,7 @@ namespace util {
 namespace gl {
 
 template<typename T>
-void draw_rectangle(float x,
+void DrawRectangle(float x,
                     float y,
                     float width,
                     float height,
@@ -52,7 +52,7 @@ void draw_rectangle(float x,
               font_color.get_green(),
               font_color.get_blue(),
               font_color.get_alpha());
-    std::string text = util::general::stringify(data);
+    std::string text = util::general::Stringify(data);
 
     // Support tab '\t' character in strings.
     // Convert '\t' to 2 spaces.
