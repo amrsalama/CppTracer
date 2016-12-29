@@ -88,7 +88,7 @@ template<typename T>
 void ArrayTracer<T>::update(float speed) {
   // Get all changed elements indices.
   std::vector<int> changed_elements_indices;
-  std::vector<core::VisualizedElement> current_styles;  // temps
+  std::vector<core::State> current_styles;  // temps
   for (int i = 0; i < size_; i++) {
     if (array_[i] != array_ptr[i]) {
       changed_elements_indices.push_back(i);
@@ -132,7 +132,7 @@ void ArrayTracer<T>::update(float speed) {
 // Notify visualization method
 template<typename T>
 void ArrayTracer<T>::notify(int index, float speed) {
-  core::VisualizedElement current_style = elements_[index];  // temp
+  core::State current_style = elements_[index];  // temp
 
   // Flash the element notified style.
   elements_[index] = theme_.notified;
@@ -150,7 +150,7 @@ void ArrayTracer<T>::notify(int from_index, int to_index) {
 
 template<typename T>
 void ArrayTracer<T>::notify(int from_index, int to_index, float speed) {
-  std::vector<core::VisualizedElement> current_styles;  // temps
+  std::vector<core::State> current_styles;  // temps
   for (int i = from_index; i <= to_index; i++) {
     current_styles.push_back(elements_[i]);
     elements_[i] = theme_.notified;

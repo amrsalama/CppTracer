@@ -63,7 +63,7 @@ class ArrayTracer : public core::Tracer {
   T* array_ptr;               // pointer to the original array
   int size_;                  // array size
   std::vector<T> array_;      // copy of original array data
-  std::vector<core::VisualizedElement> elements_;
+  std::vector<core::State> elements_;
 
   // Override render abstract method.
   void render();

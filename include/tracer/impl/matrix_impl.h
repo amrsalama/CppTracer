@@ -107,7 +107,7 @@ template<typename T, size_t RowSize, size_t ColumnSize>
 void MatrixTracer<T, RowSize, ColumnSize>::update(float speed) {
   // Get all changed elements indices.
   std::vector<int> changed_elements_indices;
-  std::vector<core::VisualizedElement> current_styles;  // temps
+  std::vector<core::State> current_styles;  // temps
   for (int i = 0; i < RowSize; i++) {
     for (int j = 0; j < ColumnSize; j++) {
       int index = flatten(i, j);
@@ -168,7 +168,7 @@ notify(int row_index, int column_index, float speed) {
 
 template<typename T, size_t RowSize, size_t ColumnSize>
 void MatrixTracer<T, RowSize, ColumnSize>::notify(int index, float speed) {
-  core::VisualizedElement current_style = elements_[index];  // temp
+  core::State current_style = elements_[index];  // temp
 
   // Flash the element notified style.
   elements_[index] = theme_.notified;
