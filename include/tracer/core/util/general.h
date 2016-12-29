@@ -1,5 +1,5 @@
-#ifndef INCLUDE_TRACER_CORE_UTILITY_GENERAL_H_
-#define INCLUDE_TRACER_CORE_UTILITY_GENERAL_H_
+#ifndef INCLUDE_TRACER_CORE_UTIL_GENERAL_H_
+#define INCLUDE_TRACER_CORE_UTIL_GENERAL_H_
 
 // Copyright © 2016.
 // Contributors to this file are:
@@ -12,7 +12,7 @@
 
 namespace tracer {
 namespace core {
-namespace utility {
+namespace util {
 namespace general {
 
 // Converts different data types to string to visualize them.
@@ -43,11 +43,11 @@ template<> inline std::string stringify<long double>(const long double& data);
 inline void delay(float seconds);
 
 }  // namespace general
-}  // namespace utility
+}  // namespace util
 }  // namespace core
 }  // namespace tracer
 
 // Defer the definition in an implementation file.
-#include "tracer/impl/core/utility/general_impl.h"
+#include "tracer/impl/core/util/general_impl.h"
 
-#endif  // INCLUDE_TRACER_CORE_UTILITY_GENERAL_H_
+#endif  // INCLUDE_TRACER_CORE_UTIL_GENERAL_H_

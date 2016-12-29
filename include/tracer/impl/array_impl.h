@@ -14,7 +14,7 @@
 #include "GL/gl.h"
 #include "GL/freeglut.h"
 #include "tracer/core/themes.h"
-#include "tracer/core/utility/gl.h"
+#include "tracer/core/util/gl.h"
 
 namespace tracer {
 
@@ -55,7 +55,7 @@ void ArrayTracer<T>::render() {
   float beginning_x = kWindowPadding;
   glClear(GL_COLOR_BUFFER_BIT);    // clear color buffer
   for (int i = 0; i < size_; i++) {
-    core::utility::gl
+    core::util::gl
     ::draw_rectangle((beginning_x + i * kRectangleWidth),
                      (window_height_ / 2.0 - kRectangleHeight / 2.0),
                      kRectangleWidth,
@@ -70,7 +70,7 @@ void ArrayTracer<T>::render() {
 template<typename T>
 void ArrayTracer<T>::render(int index) {
   float beginning_x = kWindowPadding;
-  core::utility::gl
+  core::util::gl
   ::draw_rectangle((beginning_x + index * kRectangleWidth),
                    (window_height_ / 2.0 - kRectangleHeight / 2.0),
                    kRectangleWidth,

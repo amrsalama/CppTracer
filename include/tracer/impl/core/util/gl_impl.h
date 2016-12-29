@@ -1,5 +1,5 @@
-#ifndef INCLUDE_TRACER_IMPL_CORE_UTILITY_GL_IMPL_H_
-#define INCLUDE_TRACER_IMPL_CORE_UTILITY_GL_IMPL_H_
+#ifndef INCLUDE_TRACER_IMPL_CORE_UTIL_GL_IMPL_H_
+#define INCLUDE_TRACER_IMPL_CORE_UTIL_GL_IMPL_H_
 
 // Copyright © 2016.
 // Contributors to this file are:
@@ -8,17 +8,17 @@
 //
 // Implementation of gl.h utility header file.
 
-#include "tracer/core/utility/gl.h"
+#include "tracer/core/util/gl.h"
 #include <algorithm>
 #include <string>
 #include "GL/gl.h"
 #include "GL/freeglut.h"
 #include "tracer/core/color.h"
-#include "tracer/core/utility/general.h"
+#include "tracer/core/util/general.h"
 
 namespace tracer {
 namespace core {
-namespace utility {
+namespace util {
 namespace gl {
 
 template<typename T>
@@ -52,7 +52,7 @@ void draw_rectangle(float x,
               font_color.get_green(),
               font_color.get_blue(),
               font_color.get_alpha());
-    std::string text = utility::general::stringify(data);
+    std::string text = util::general::stringify(data);
 
     // Support tab '\t' character in strings.
     // Convert '\t' to 2 spaces.
@@ -107,8 +107,8 @@ void draw_rectangle(float x,
 }
 
 }  // namespace gl
-}  // namespace utility
+}  // namespace util
 }  // namespace core
 }  // namespace tracer
 
-#endif  // INCLUDE_TRACER_IMPL_CORE_UTILITY_GL_IMPL_H_
+#endif  // INCLUDE_TRACER_IMPL_CORE_UTIL_GL_IMPL_H_

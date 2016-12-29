@@ -1,5 +1,5 @@
-#ifndef INCLUDE_TRACER_IMPL_CORE_UTILITY_GENERAL_IMPL_H_
-#define INCLUDE_TRACER_IMPL_CORE_UTILITY_GENERAL_IMPL_H_
+#ifndef INCLUDE_TRACER_IMPL_CORE_UTIL_GENERAL_IMPL_H_
+#define INCLUDE_TRACER_IMPL_CORE_UTIL_GENERAL_IMPL_H_
 
 // Copyright © 2016.
 // Contributors to this file are:
@@ -8,7 +8,7 @@
 //
 // Implementation of general.h utility header file.
 
-#include "tracer/core/utility/general.h"
+#include "tracer/core/util/general.h"
 #include <string>
 #include <sstream>                  // ostringstream
 #include <iomanip>                  // setprecision
@@ -23,7 +23,7 @@
 
 namespace tracer {
 namespace core {
-namespace utility {
+namespace util {
 namespace general {
 
 // Stringify
@@ -73,8 +73,8 @@ void delay(float seconds) {
 }
 
 }  // namespace general
-}  // namespace utility
+}  // namespace util
 }  // namespace core
 }  // namespace tracer
 
-#endif  // INCLUDE_TRACER_IMPL_CORE_UTILITY_GENERAL_IMPL_H_
+#endif  // INCLUDE_TRACER_IMPL_CORE_UTIL_GENERAL_IMPL_H_

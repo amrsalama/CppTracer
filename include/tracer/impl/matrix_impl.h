@@ -15,7 +15,7 @@
 #include "GL/gl.h"
 #include "GL/freeglut.h"
 #include "tracer/core/themes.h"
-#include "tracer/core/utility/gl.h"
+#include "tracer/core/util/gl.h"
 
 namespace tracer {
 
@@ -69,7 +69,7 @@ void MatrixTracer<T, RowSize, ColumnSize>::render() {
   glClear(GL_COLOR_BUFFER_BIT);    // clear color buffer
   for (int i = RowSize - 1; i >= 0; i--) {
     for (int j = 0; j < ColumnSize; j++) {
-      core::utility::gl
+      core::util::gl
       ::draw_rectangle((beginning_x + j * kRectangleWidth),
                        (beginning_y - i * kRectangleHeight),
                        kRectangleWidth,
@@ -90,7 +90,7 @@ void MatrixTracer<T, RowSize, ColumnSize>::render(int index) {
   std::pair<int, int> row_column = reshape(index);
   int row = row_column.first, column = row_column.second;
 
-  core::utility::gl
+  core::util::gl
   ::draw_rectangle((beginning_x + column * kRectangleWidth),
                    (beginning_y - row * kRectangleHeight),
                    kRectangleWidth,

@@ -1,5 +1,5 @@
-#ifndef INCLUDE_TRACER_CORE_UTILITY_GL_H_
-#define INCLUDE_TRACER_CORE_UTILITY_GL_H_
+#ifndef INCLUDE_TRACER_CORE_UTIL_GL_H_
+#define INCLUDE_TRACER_CORE_UTIL_GL_H_
 
 // Copyright © 2016.
 // Contributors to this file are:
@@ -14,7 +14,7 @@
 
 namespace tracer {
 namespace core {
-namespace utility {
+namespace util {
 namespace gl {
 
 // Draw a rectangle with the specified x, w, width, height and the data to be
@@ -36,11 +36,11 @@ void draw_rectangle(float x,
                     int padding = 2);
 
 }  // namespace gl
-}  // namespace utility
+}  // namespace util
 }  // namespace core
 }  // namespace tracer
 
 // Defer the definition in an implementation file.
-#include "tracer/impl/core/utility/gl_impl.h"
+#include "tracer/impl/core/util/gl_impl.h"
 
-#endif  // INCLUDE_TRACER_CORE_UTILITY_GL_H_
+#endif  // INCLUDE_TRACER_CORE_UTIL_GL_H_
