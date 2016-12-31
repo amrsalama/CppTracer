@@ -22,14 +22,14 @@ namespace util {
 namespace gl {
 
 template<typename T>
-void DrawRectangle(float x,
-                    float y,
-                    float width,
-                    float height,
-                    const T& data,
-                    const Color& background_color,
-                    const Color& font_color,
-                    int padding) {
+void DrawRectangle(int x,
+                   int y,
+                   int width,
+                   int height,
+                   const T& data,
+                   const Color& background_color,
+                   const Color& font_color,
+                   int padding) {
     if (x < 0) x = 0;  // can't be less than 0
     if (y < 0) y = 0;  // can't be less than 0
 
@@ -39,10 +39,10 @@ void DrawRectangle(float x,
               background_color.get_blue(),
               background_color.get_alpha());
     glBegin(GL_POLYGON);
-      glVertex2f(x + padding,         y + padding);           // lower left
-      glVertex2f(x + padding,         y + height - padding);  // upper left
-      glVertex2f(x + width - padding, y + height - padding);  // upper right
-      glVertex2f(x + width - padding, y + padding);           // lower right
+      glVertex2i(x + padding,         y + padding);           // lower left
+      glVertex2i(x + padding,         y + height - padding);  // upper left
+      glVertex2i(x + width - padding, y + height - padding);  // upper right
+      glVertex2i(x + width - padding, y + padding);           // lower right
     glEnd();
 
     // Draw data.
@@ -92,13 +92,13 @@ void DrawRectangle(float x,
     if (text_x_pos < 0) text_x_pos = 0;  // can't be less than 0
     if (text_y_pos < 0) text_y_pos = 0;  // can't be less than 0
 
-    glRasterPos2f(text_x_pos, text_y_pos);
+    glRasterPos2i(text_x_pos, text_y_pos);
     for (int i = 0; i < text.size(); i++) {
       // Support '\n',
       // if the next char is '\n' move to the next line.
       if (text[i] == '\n') {
         text_y_pos -= 15;
-        glRasterPos2f(text_x_pos, text_y_pos);
+        glRasterPos2i(text_x_pos, text_y_pos);
         continue;
       }
 

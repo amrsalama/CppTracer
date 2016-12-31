@@ -26,13 +26,13 @@ namespace gl {
 //    DrawRectangle(0, 0, 100, 100, 22, Color(255, 0, 0), Color(0, 0, 0));
 //    DrawRectangle(0, 0, 100, 100, 33, Color(255, 0, 0), Color(0, 0, 0), 5);
 template<typename T>
-void DrawRectangle(float x,
-                   float y,
-                   float width,
-                   float height,
+void DrawRectangle(int x,
+                   int y,
+                   int width,
+                   int height,
                    const T& data,
-                   const Color& background_color = Color(70, 70, 70),
-                   const Color& font_color = Color(255, 255, 255),
+                   const Color& background_color = Color("#464646"),
+                   const Color& font_color = Color("#FFFFFF"),
                    int padding = 2);
 
 }  // namespace gl
