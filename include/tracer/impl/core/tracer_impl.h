@@ -46,10 +46,10 @@ Tracer::Tracer(int argc,
   glutInitWindowPosition(window_x_position_, window_y_position_);
   window_id_ = glutCreateWindow(window_title.c_str());
 
-  glClearColor(theme.tracer_background_color.get_red(),
-               theme.tracer_background_color.get_green(),
-               theme.tracer_background_color.get_blue(),
-               theme.tracer_background_color.get_alpha());
+  glClearColor(theme_.getTracerBackgroundColor().get_red(),
+               theme_.getTracerBackgroundColor().get_green(),
+               theme_.getTracerBackgroundColor().get_blue(),
+               theme_.getTracerBackgroundColor().get_alpha());
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
   glOrtho(0, window_width_, 0, window_height_, 0, 1.0);

@@ -14,7 +14,8 @@
 #include <utility>    // std::pair
 #include "GL/gl.h"
 #include "GL/freeglut.h"
-#include "tracer/core/themes.h"
+#include "tracer/core/visuals/element_state.h"
+#include "tracer/core/theme.h"
 #include "tracer/core/util/gl.h"
 
 namespace tracer {
@@ -40,7 +41,7 @@ MatrixTracer(T (*matrix)[ColumnSize],
   // Which means if we have matrix of size 2x3, we will have a flatten array
   // of 6 elements instead.
   // We use flatten and reshape methods to handle this idea.
-  elements_.assign(RowSize * ColumnSize, theme.normal);
+  elements_.assign(RowSize * ColumnSize, theme_.getElementState(core::kNormal));
   matrix_.resize(RowSize * ColumnSize);
   for (int i = 0; i < RowSize; i++) {
     for (int j = 0; j < ColumnSize; j++) {
@@ -106,7 +107,7 @@ template<typename T, size_t RowSize, size_t ColumnSize>
 void MatrixTracer<T, RowSize, ColumnSize>::update(float speed) {
   // Get all changed elements indices.
   std::vector<int> changed_elements_indices;
-  std::vector<core::State> current_styles;  // temps
+  std::vector<core::ElementState> current_styles;  // temps
   for (int i = 0; i < RowSize; i++) {
     for (int j = 0; j < ColumnSize; j++) {
       int index = flatten(i, j);
@@ -126,7 +127,7 @@ void MatrixTracer<T, RowSize, ColumnSize>::update(float speed) {
   // 1. Mark all changed elements with updated style.
   for (int i = 0; i < changed_elements_indices.size(); i++) {
     index = changed_elements_indices[i];
-    elements_[index] = theme_.updated;
+    elements_[index] = theme_.getElementState(core::kUpdated1);
     flush(0.0, index);  // flush the element to screen, we don't need to wait
   }
   flush(speed / 3.0, index);
@@ -137,7 +138,7 @@ void MatrixTracer<T, RowSize, ColumnSize>::update(float speed) {
     std::pair<int, int> row_column = reshape(index);
     int row = row_column.first, column = row_column.second;
 
-    elements_[index] = theme_.updated2;
+    elements_[index] = theme_.getElementState(core::kUpdated2);
     matrix_[index] = matrix_ptr[row][column];  // update array data
     flush(0.0, index);  // flush the element to screen, we don't need to wait
   }
@@ -167,10 +168,10 @@ notify(int row_index, int column_index, float speed) {
 
 template<typename T, size_t RowSize, size_t ColumnSize>
 void MatrixTracer<T, RowSize, ColumnSize>::notify(int index, float speed) {
-  core::State current_style = elements_[index];  // temp
+  core::ElementState current_style = elements_[index];  // temp
 
   // Flash the element notified style.
-  elements_[index] = theme_.notified;
+  elements_[index] = theme_.getElementState(core::kNotified);
   flush(speed / 2.0, index);
 
   // Flash again to its previous style.
@@ -193,7 +194,7 @@ deselect(int row_index, int column_index, float speed) {
 
 template<typename T, size_t RowSize, size_t ColumnSize>
 void MatrixTracer<T, RowSize, ColumnSize>::deselect(int index, float speed) {
-  elements_[index] = theme_.normal;
+  elements_[index] = theme_.getElementState(core::kNormal);
   flush(speed, index);
 }
 
@@ -212,7 +213,7 @@ select(int row_index, int column_index, float speed) {
 
 template<typename T, size_t RowSize, size_t ColumnSize>
 void MatrixTracer<T, RowSize, ColumnSize>::select(int index, float speed) {
-  elements_[index] = theme_.selected;
+  elements_[index] = theme_.getElementState(core::kSelected);
   flush(speed, index);
 }
 

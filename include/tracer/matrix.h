@@ -12,7 +12,7 @@
 #include <string>
 #include <vector>
 #include <utility>
-#include "tracer/core/themes.h"
+#include "tracer/core/theme.h"
 #include "tracer/core/tracer.h"
 
 namespace tracer {
@@ -52,7 +52,7 @@ class MatrixTracer : public core::Tracer {
   const float kRectangleWidth, kRectangleHeight, kWindowPadding;
   T (*matrix_ptr)[ColumnSize];      // pointer to the original matrix
   std::vector<T> matrix_;           // copy of original matrix data
-  std::vector<core::State> elements_;
+  std::vector<core::ElementState> elements_;
 
   // Override render abstract method.
   void render();

@@ -13,7 +13,8 @@
 #include <vector>
 #include "GL/gl.h"
 #include "GL/freeglut.h"
-#include "tracer/core/themes.h"
+#include "tracer/core/visuals/element_state.h"
+#include "tracer/core/theme.h"
 #include "tracer/core/util/gl.h"
 
 namespace tracer {
@@ -36,7 +37,7 @@ ArrayTracer<T>::ArrayTracer(T* array,
   array_ptr = array;                      // save pointer to the original array
   size_ = size;
   array_.assign(array, array + size);
-  elements_.assign(size, theme.normal);
+  elements_.assign(size, theme_.getElementState(core::kNormal));
 
   // Display the tracer and wait for 0.2 second.
   flush(0.2);
@@ -87,7 +88,7 @@ template<typename T>
 void ArrayTracer<T>::update(float speed) {
   // Get all changed elements indices.
   std::vector<int> changed_elements_indices;
-  std::vector<core::State> current_styles;  // temps
+  std::vector<core::ElementState> current_styles;  // temps
   for (int i = 0; i < size_; i++) {
     if (array_[i] != array_ptr[i]) {
       changed_elements_indices.push_back(i);
@@ -104,7 +105,7 @@ void ArrayTracer<T>::update(float speed) {
   // 1. Mark all changed elements with updated style.
   for (int i = 0; i < changed_elements_indices.size(); i++) {
     index = changed_elements_indices[i];
-    elements_[index] = theme_.updated;
+    elements_[index] = theme_.getElementState(core::kUpdated1);
     flush(0.0, index);  // flush the element to screen, we don't need to wait
   }
   flush(speed / 3.0, index);
@@ -112,7 +113,7 @@ void ArrayTracer<T>::update(float speed) {
   // 2. Update array data.
   for (int i = 0; i < changed_elements_indices.size(); i++) {
     index = changed_elements_indices[i];
-    elements_[index] = theme_.updated2;
+    elements_[index] = theme_.getElementState(core::kUpdated2);
     array_[index] = array_ptr[index];  // update array data
     flush(0.0, index);  // flush the element to screen, we don't need to wait
   }
@@ -131,10 +132,10 @@ void ArrayTracer<T>::update(float speed) {
 // Notify visualization method
 template<typename T>
 void ArrayTracer<T>::notify(int index, float speed) {
-  core::State current_style = elements_[index];  // temp
+  core::ElementState current_style = elements_[index];  // temp
 
   // Flash the element notified style.
-  elements_[index] = theme_.notified;
+  elements_[index] = theme_.getElementState(core::kNotified);
   flush(speed / 2.0, index);
 
   // Flash again to its previous style.
@@ -149,10 +150,10 @@ void ArrayTracer<T>::notify(int from_index, int to_index) {
 
 template<typename T>
 void ArrayTracer<T>::notify(int from_index, int to_index, float speed) {
-  std::vector<core::State> current_styles;  // temps
+  std::vector<core::ElementState> current_styles;  // temps
   for (int i = from_index; i <= to_index; i++) {
     current_styles.push_back(elements_[i]);
-    elements_[i] = theme_.notified;
+    elements_[i] = theme_.getElementState(core::kNotified);
     flush(0.0, i);
   }
   flush(speed / 2.0, to_index);
@@ -168,7 +169,7 @@ void ArrayTracer<T>::notify(int from_index, int to_index, float speed) {
 // Select visualization methods
 template<typename T>
 void ArrayTracer<T>::select(int index, float speed) {
-  elements_[index] = theme_.selected;
+  elements_[index] = theme_.getElementState(core::kSelected);
   flush(speed, index);
 }
 
@@ -180,7 +181,7 @@ void ArrayTracer<T>::select(int from_index, int to_index) {
 template<typename T>
 void ArrayTracer<T>::select(int from_index, int to_index, float speed) {
   for (int i = from_index; i <= to_index; i++) {
-    elements_[i] = theme_.selected;
+    elements_[i] = theme_.getElementState(core::kSelected);
     flush(0.0, i);
   }
   flush(speed, to_index);
@@ -190,7 +191,7 @@ void ArrayTracer<T>::select(int from_index, int to_index, float speed) {
 // Deselect visualization method
 template<typename T>
 void ArrayTracer<T>::deselect(int index, float speed) {
-  elements_[index] = theme_.normal;
+  elements_[index] = theme_.getElementState(core::kNormal);
   flush(speed, index);
 }
 
@@ -202,7 +203,7 @@ void ArrayTracer<T>::deselect(int from_index, int to_index) {
 template<typename T>
 void ArrayTracer<T>::deselect(int from_index, int to_index, float speed) {
   for (int i = from_index; i <= to_index; i++) {
-    elements_[i] = theme_.normal;
+    elements_[i] = theme_.getElementState(core::kNormal);
     flush(0.0, i);
   }
   flush(speed, to_index);

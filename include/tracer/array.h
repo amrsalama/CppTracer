@@ -11,7 +11,7 @@
 
 #include <string>
 #include <vector>
-#include "tracer/core/themes.h"
+#include "tracer/core/theme.h"
 #include "tracer/core/tracer.h"
 
 namespace tracer {
@@ -62,7 +62,7 @@ class ArrayTracer : public core::Tracer {
   T* array_ptr;               // pointer to the original array
   int size_;                  // array size
   std::vector<T> array_;      // copy of original array data
-  std::vector<core::State> elements_;
+  std::vector<core::ElementState> elements_;
 
   // Override render abstract method.
   void render();

@@ -9,6 +9,7 @@
 // Implementation of visualized_element.h header file.
 
 #include "tracer/core/visuals/visualized_element.h"
+#include "tracer/core/visuals/element_state.h"
 
 namespace tracer {
 namespace core {
@@ -16,12 +17,11 @@ namespace core {
 // Constructor
 template<typename T>
 VisualizedElement<T>::VisualizedElement(
-    int x, int y, T data, core::Theme& theme)
-    : theme_(theme),
-      current_state_(theme.notified) {
+    int x, int y, T data, core::Theme& theme) : theme_(theme) {
   x_ = x;
   y_ = y;
   data_ = data;
+  current_state_ = kNormal;
 }
 
 }  // namespace core

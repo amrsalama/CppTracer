@@ -30,8 +30,8 @@ void RectangleVisualizedElement<T>::render() {
     this->x_, this->y_,
     this->width_, this->height_,
     this->data_,
-    this->current_state_.background_color,
-    this->current_state_.font_color);
+    this->theme_.getElementState(this->current_state_).background_color,
+    this->theme_.getElementState(this->current_state_).font_color);
 }
 
 }  // namespace core

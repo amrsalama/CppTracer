@@ -9,7 +9,8 @@
 // Visualized element, each visualized element (rectangle, circle, ...)
 // has properties like background color, font color, x, y ...
 
-#include "tracer/core/themes.h"   // State
+#include "tracer/core/theme.h"
+#include "tracer/core/visuals/element_state.h"
 
 namespace tracer {
 namespace core {
@@ -24,7 +25,7 @@ class VisualizedElement {
   T data_;
   int x_, y_;
   core::Theme &theme_;
-  core::State current_state_;   // @TODO: better reference to state
+  ElementStateType current_state_;
 };
 
 }  // namespace core
