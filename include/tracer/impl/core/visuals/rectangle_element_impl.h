@@ -1,31 +1,32 @@
-#ifndef INCLUDE_TRACER_IMPL_CORE_VISUALS_RECTANGLE_VISUALIZED_ELEMENT_IMPL_H_
-#define INCLUDE_TRACER_IMPL_CORE_VISUALS_RECTANGLE_VISUALIZED_ELEMENT_IMPL_H_
+#ifndef INCLUDE_TRACER_IMPL_CORE_VISUALS_RECTANGLE_ELEMENT_IMPL_H_
+#define INCLUDE_TRACER_IMPL_CORE_VISUALS_RECTANGLE_ELEMENT_IMPL_H_
 
 // Copyright © 2016.
 // Contributors to this file are:
 //    Amr Salama <amr.mo.salama@gmail.com>,
 //    ...
 //
-// Implementation of rectangle_visualized_element.h header file.
+// Implementation of rectangle_element.h header file.
 
-#include "tracer/core/visuals/rectangle_visualized_element.h"
+#include "tracer/core/visuals/rectangle_element.h"
 #include "tracer/core/util/gl.h"
 
 namespace tracer {
 namespace core {
+namespace visuals {
 
 // Constructor
 template<typename T>
-RectangleVisualizedElement<T>::RectangleVisualizedElement(
+RectangleElement<T>::RectangleElement(
     int x, int y, int width, int height, T data, core::Theme& theme)
-    : VisualizedElement<T>(x, y, data, theme) {
+    : Element<T>(x, y, data, theme) {
   width_ = width;
   height_ = height;
 }
 
 // Render implementation for rectangle elements
 template<typename T>
-void RectangleVisualizedElement<T>::render() {
+void RectangleElement<T>::render() {
   core::util::gl::DrawRectangle(
     this->x_, this->y_,
     this->width_, this->height_,
@@ -34,7 +35,8 @@ void RectangleVisualizedElement<T>::render() {
     this->theme_.getElementState(this->current_state_).font_color);
 }
 
+}  // namespace visuals
 }  // namespace core
 }  // namespace tracer
 
-#endif  // INCLUDE_TRACER_IMPL_CORE_VISUALS_RECTANGLE_VISUALIZED_ELEMENT_IMPL_H_
+#endif  // INCLUDE_TRACER_IMPL_CORE_VISUALS_RECTANGLE_ELEMENT_IMPL_H_

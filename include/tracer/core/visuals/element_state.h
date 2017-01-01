@@ -12,6 +12,7 @@
 
 namespace tracer {
 namespace core {
+namespace visuals {
 
 enum ElementStateType {
   kNormal = 0,
@@ -28,6 +29,7 @@ struct ElementState {
     : background_color(background), font_color(font) {}
 };
 
+}  // namespace visuals
 }  // namespace core
 }  // namespace tracer
 

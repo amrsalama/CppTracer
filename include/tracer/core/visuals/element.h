@@ -1,5 +1,5 @@
-#ifndef INCLUDE_TRACER_CORE_VISUALS_VISUALIZED_ELEMENT_H_
-#define INCLUDE_TRACER_CORE_VISUALS_VISUALIZED_ELEMENT_H_
+#ifndef INCLUDE_TRACER_CORE_VISUALS_ELEMENT_H_
+#define INCLUDE_TRACER_CORE_VISUALS_ELEMENT_H_
 
 // Copyright © 2016.
 // Contributors to this file are:
@@ -14,11 +14,12 @@
 
 namespace tracer {
 namespace core {
+namespace visuals {
 
 template<typename T>
-class VisualizedElement {
+class Element {
  public:
-  VisualizedElement(int x, int y, T data, core::Theme& theme);
+  Element(int x, int y, T data, core::Theme& theme);
   virtual void render() = 0;
 
  protected:
@@ -28,10 +29,11 @@ class VisualizedElement {
   ElementStateType current_state_;
 };
 
+}  // namespace visuals
 }  // namespace core
 }  // namespace tracer
 
 // Defer the definition in an implementation file.
-#include "tracer/impl/core/visuals/visualized_element_impl.h"
+#include "tracer/impl/core/visuals/element_impl.h"
 
-#endif  // INCLUDE_TRACER_CORE_VISUALS_VISUALIZED_ELEMENT_H_
+#endif  // INCLUDE_TRACER_CORE_VISUALS_ELEMENT_H_

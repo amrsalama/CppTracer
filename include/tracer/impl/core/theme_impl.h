@@ -17,32 +17,32 @@ namespace core {
 
 Theme::Theme() {
   tracer_background_color_ = util::Color();
-  states_[kNormal]   = ElementState(util::Color(), util::Color());
-  states_[kNotified] = ElementState(util::Color(), util::Color());
-  states_[kSelected] = ElementState(util::Color(), util::Color());
-  states_[kUpdated1] = ElementState(util::Color(), util::Color());
-  states_[kUpdated2] = ElementState(util::Color(), util::Color());
+  states_[visuals::kNormal]   = visuals::ElementState(util::Color(), util::Color());
+  states_[visuals::kNotified] = visuals::ElementState(util::Color(), util::Color());
+  states_[visuals::kSelected] = visuals::ElementState(util::Color(), util::Color());
+  states_[visuals::kUpdated1] = visuals::ElementState(util::Color(), util::Color());
+  states_[visuals::kUpdated2] = visuals::ElementState(util::Color(), util::Color());
 }
 
 Theme::Theme(const util::Color& tracer_background,
-             const ElementState& normal_state,
-             const ElementState& notified_state,
-             const ElementState& selected_state,
-             const ElementState& updated1_state,
-             const ElementState& updated2_state) {
+             const visuals::ElementState& normal_state,
+             const visuals::ElementState& notified_state,
+             const visuals::ElementState& selected_state,
+             const visuals::ElementState& updated1_state,
+             const visuals::ElementState& updated2_state) {
   tracer_background_color_ = tracer_background;
-  states_[kNormal]   = normal_state;
-  states_[kNotified] = notified_state;
-  states_[kSelected] = selected_state;
-  states_[kUpdated1] = updated1_state;
-  states_[kUpdated2] = updated2_state;
+  states_[visuals::kNormal]   = normal_state;
+  states_[visuals::kNotified] = notified_state;
+  states_[visuals::kSelected] = selected_state;
+  states_[visuals::kUpdated1] = updated1_state;
+  states_[visuals::kUpdated2] = updated2_state;
 }
 
 util::Color Theme::getTracerBackgroundColor() {
   return tracer_background_color_;
 }
 
-ElementState Theme::getElementState(ElementStateType state) {
+visuals::ElementState Theme::getElementState(visuals::ElementStateType state) {
   return states_[state];
 }
 

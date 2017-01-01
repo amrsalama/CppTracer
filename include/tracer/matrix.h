@@ -52,7 +52,7 @@ class MatrixTracer : public core::Tracer {
   const float kRectangleWidth, kRectangleHeight, kWindowPadding;
   T (*matrix_ptr)[ColumnSize];      // pointer to the original matrix
   std::vector<T> matrix_;           // copy of original matrix data
-  std::vector<core::ElementState> elements_;
+  std::vector<core::visuals::ElementState> elements_;
 
   // Override render abstract method.
   void render();
