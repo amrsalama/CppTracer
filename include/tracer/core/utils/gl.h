@@ -1,5 +1,5 @@
-#ifndef INCLUDE_TRACER_CORE_UTIL_GL_H_
-#define INCLUDE_TRACER_CORE_UTIL_GL_H_
+#ifndef INCLUDE_TRACER_CORE_UTILS_GL_H_
+#define INCLUDE_TRACER_CORE_UTILS_GL_H_
 
 // Copyright © 2016.
 // Contributors to this file are:
@@ -10,11 +10,11 @@
 // In general, this utilities define the basic shapes drawing with some
 // data visualization (e.g. rectangles, circles, arrows, ...).
 
-#include "tracer/core/util/color.h"
+#include "tracer/core/utils/color.h"
 
 namespace tracer {
 namespace core {
-namespace util {
+namespace utils {
 namespace gl {
 
 // Draw a rectangle with the specified x, w, width, height and the data to be
@@ -36,11 +36,11 @@ void DrawRectangle(int x,
                    int padding = 2);
 
 }  // namespace gl
-}  // namespace util
+}  // namespace utils
 }  // namespace core
 }  // namespace tracer
 
 // Defer the definition in an implementation file.
-#include "tracer/impl/core/util/gl_impl.h"
+#include "tracer/impl/core/utils/gl_impl.h"
 
-#endif  // INCLUDE_TRACER_CORE_UTIL_GL_H_
+#endif  // INCLUDE_TRACER_CORE_UTILS_GL_H_

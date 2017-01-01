@@ -9,7 +9,7 @@
 // Themes file.
 
 #include <map>
-#include "tracer/core/util/color.h"
+#include "tracer/core/utils/color.h"
 #include "tracer/core/visuals/element_state.h"
 
 namespace tracer {
@@ -19,18 +19,18 @@ namespace core {
 class Theme {
  public:
   Theme();  // Default constructor initializes all states with black.
-  Theme(const util::Color& tracer_background,
+  Theme(const utils::Color& tracer_background,
         const visuals::ElementState& normal_state,
         const visuals::ElementState& notified_state,
         const visuals::ElementState& selected_state,
         const visuals::ElementState& updated1_state,
         const visuals::ElementState& updated2_state);
 
-  inline util::Color getTracerBackgroundColor();
+  inline utils::Color getTracerBackgroundColor();
   inline visuals::ElementState getElementState(visuals::ElementStateType state);
 
  private:
-  util::Color tracer_background_color_;
+  utils::Color tracer_background_color_;
   std::map<visuals::ElementStateType, visuals::ElementState> states_;
 };
 
@@ -38,21 +38,21 @@ class Theme {
 
 // LightTheme (@salama).
 const core::Theme LIGHT_THEME
-  (core::util::Color("#F5F5F5"),
-   core::visuals::ElementState(core::util::Color("#AAAAAA"), core::util::Color("#FFFFFF")),
-   core::visuals::ElementState(core::util::Color("#EF5B6E"), core::util::Color("#FFFFFF")),
-   core::visuals::ElementState(core::util::Color("#02A8F3"), core::util::Color("#FFFFFF")),
-   core::visuals::ElementState(core::util::Color("#40D47E"), core::util::Color("#FFFFFF")),
-   core::visuals::ElementState(core::util::Color("#18AC8F"), core::util::Color("#FFFFFF")));
+  (core::utils::Color("#F5F5F5"),
+   core::visuals::ElementState(core::utils::Color("#AAAAAA"), core::utils::Color("#FFFFFF")),
+   core::visuals::ElementState(core::utils::Color("#EF5B6E"), core::utils::Color("#FFFFFF")),
+   core::visuals::ElementState(core::utils::Color("#02A8F3"), core::utils::Color("#FFFFFF")),
+   core::visuals::ElementState(core::utils::Color("#40D47E"), core::utils::Color("#FFFFFF")),
+   core::visuals::ElementState(core::utils::Color("#18AC8F"), core::utils::Color("#FFFFFF")));
 
 // DarkTheme (@salama).
 const core::Theme DARK_THEME
-  (core::util::Color("#AAAAAA"),
-   core::visuals::ElementState(core::util::Color("#E6E6E6"), core::util::Color("#1E1E1E")),
-   core::visuals::ElementState(core::util::Color("#FFA0A0"), core::util::Color("#FFFFFF")),
-   core::visuals::ElementState(core::util::Color("#64C8FF"), core::util::Color("#FFFFFF")),
-   core::visuals::ElementState(core::util::Color("#32FF96"), core::util::Color("#FFFFFF")),
-   core::visuals::ElementState(core::util::Color("#00C864"), core::util::Color("#FFFFFF")));
+  (core::utils::Color("#AAAAAA"),
+   core::visuals::ElementState(core::utils::Color("#E6E6E6"), core::utils::Color("#1E1E1E")),
+   core::visuals::ElementState(core::utils::Color("#FFA0A0"), core::utils::Color("#FFFFFF")),
+   core::visuals::ElementState(core::utils::Color("#64C8FF"), core::utils::Color("#FFFFFF")),
+   core::visuals::ElementState(core::utils::Color("#32FF96"), core::utils::Color("#FFFFFF")),
+   core::visuals::ElementState(core::utils::Color("#00C864"), core::utils::Color("#FFFFFF")));
 
 const core::Theme& DEFALUT_THEME = LIGHT_THEME;
 

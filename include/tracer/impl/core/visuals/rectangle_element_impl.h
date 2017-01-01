@@ -9,7 +9,7 @@
 // Implementation of rectangle_element.h header file.
 
 #include "tracer/core/visuals/rectangle_element.h"
-#include "tracer/core/util/gl.h"
+#include "tracer/core/utils/gl.h"
 
 namespace tracer {
 namespace core {
@@ -27,7 +27,7 @@ RectangleElement<T>::RectangleElement(
 // Render implementation for rectangle elements
 template<typename T>
 void RectangleElement<T>::render() {
-  core::util::gl::DrawRectangle(
+  core::utils::gl::DrawRectangle(
     this->x_, this->y_,
     this->width_, this->height_,
     this->data_,

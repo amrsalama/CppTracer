@@ -12,7 +12,7 @@
 #include <string>
 #include "GL/gl.h"
 #include "GL/freeglut.h"
-#include "tracer/core/util/general.h"
+#include "tracer/core/utils/general.h"
 
 namespace tracer {
 namespace core {
@@ -93,9 +93,9 @@ void Tracer::flush(float speed, int index) {
   }
 
   if (speed < 0) {
-    core::util::general::Delay(speed_);  // default speed
+    core::utils::general::Delay(speed_);  // default speed
   } else {
-    core::util::general::Delay(speed);
+    core::utils::general::Delay(speed);
   }
 }
 

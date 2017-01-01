@@ -8,7 +8,7 @@
 //
 // Visualized elements states
 
-#include "tracer/core/util/color.h"
+#include "tracer/core/utils/color.h"
 
 namespace tracer {
 namespace core {
@@ -23,9 +23,9 @@ enum ElementStateType {
 };
 
 struct ElementState {
-  util::Color background_color, font_color;
+  utils::Color background_color, font_color;
   ElementState() {};
-  ElementState(const util::Color& background, const util::Color& font)
+  ElementState(const utils::Color& background, const utils::Color& font)
     : background_color(background), font_color(font) {}
 };
 

@@ -9,22 +9,22 @@
 // Implementation of theme.h header file.
 
 #include "tracer/core/theme.h"
-#include "tracer/core/util/color.h"
+#include "tracer/core/utils/color.h"
 #include "tracer/core/visuals/element_state.h"
 
 namespace tracer {
 namespace core {
 
 Theme::Theme() {
-  tracer_background_color_ = util::Color();
-  states_[visuals::kNormal]   = visuals::ElementState(util::Color(), util::Color());
-  states_[visuals::kNotified] = visuals::ElementState(util::Color(), util::Color());
-  states_[visuals::kSelected] = visuals::ElementState(util::Color(), util::Color());
-  states_[visuals::kUpdated1] = visuals::ElementState(util::Color(), util::Color());
-  states_[visuals::kUpdated2] = visuals::ElementState(util::Color(), util::Color());
+  tracer_background_color_ = utils::Color();
+  states_[visuals::kNormal]   = visuals::ElementState(utils::Color(), utils::Color());
+  states_[visuals::kNotified] = visuals::ElementState(utils::Color(), utils::Color());
+  states_[visuals::kSelected] = visuals::ElementState(utils::Color(), utils::Color());
+  states_[visuals::kUpdated1] = visuals::ElementState(utils::Color(), utils::Color());
+  states_[visuals::kUpdated2] = visuals::ElementState(utils::Color(), utils::Color());
 }
 
-Theme::Theme(const util::Color& tracer_background,
+Theme::Theme(const utils::Color& tracer_background,
              const visuals::ElementState& normal_state,
              const visuals::ElementState& notified_state,
              const visuals::ElementState& selected_state,
@@ -38,7 +38,7 @@ Theme::Theme(const util::Color& tracer_background,
   states_[visuals::kUpdated2] = updated2_state;
 }
 
-util::Color Theme::getTracerBackgroundColor() {
+utils::Color Theme::getTracerBackgroundColor() {
   return tracer_background_color_;
 }
 

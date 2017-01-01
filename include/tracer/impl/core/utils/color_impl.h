@@ -1,5 +1,5 @@
-#ifndef INCLUDE_TRACER_IMPL_CORE_UTIL_COLOR_IMPL_H_
-#define INCLUDE_TRACER_IMPL_CORE_UTIL_COLOR_IMPL_H_
+#ifndef INCLUDE_TRACER_IMPL_CORE_UTILS_COLOR_IMPL_H_
+#define INCLUDE_TRACER_IMPL_CORE_UTILS_COLOR_IMPL_H_
 
 // Copyright © 2016.
 // Contributors to this file are:
@@ -8,13 +8,13 @@
 //
 // Implementation of color.h header file.
 
-#include "tracer/core/util/color.h"
+#include "tracer/core/utils/color.h"
 #include <cmath>
 #include <string>
 
 namespace tracer {
 namespace core {
-namespace util {
+namespace utils {
 
 Color::Color() {
   red_   = 0.0;
@@ -107,8 +107,8 @@ int Color::HexaToDecimal(const std::string &hexa) {
   return int_value;
 }
 
-}  // namespace util
+}  // namespace utils
 }  // namespace core
 }  // namespace tracer
 
-#endif  // INCLUDE_TRACER_IMPL_CORE_UTIL_COLOR_IMPL_H_
+#endif  // INCLUDE_TRACER_IMPL_CORE_UTILS_COLOR_IMPL_H_

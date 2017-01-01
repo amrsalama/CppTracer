@@ -1,5 +1,5 @@
-#ifndef INCLUDE_TRACER_CORE_UTIL_COLOR_H_
-#define INCLUDE_TRACER_CORE_UTIL_COLOR_H_
+#ifndef INCLUDE_TRACER_CORE_UTILS_COLOR_H_
+#define INCLUDE_TRACER_CORE_UTILS_COLOR_H_
 
 // Copyright © 2016.
 // Contributors to this file are:
@@ -13,7 +13,7 @@
 
 namespace tracer {
 namespace core {
-namespace util {
+namespace utils {
 
 class Color {
  public:
@@ -84,11 +84,11 @@ class Color {
   int HexaToDecimal(const std::string &hexa);
 };
 
-}  // namespace util
+}  // namespace utils
 }  // namespace core
 }  // namespace tracer
 
 // Defer the definition in an implementation file.
-#include "tracer/impl/core/util/color_impl.h"
+#include "tracer/impl/core/utils/color_impl.h"
 
-#endif  // INCLUDE_TRACER_CORE_UTIL_COLOR_H_
+#endif  // INCLUDE_TRACER_CORE_UTILS_COLOR_H_
