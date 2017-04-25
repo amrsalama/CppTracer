@@ -23,7 +23,7 @@ Color::Color() {
   alpha_ = 0.0;
 }
 
-Color::Color(float red, float green, float blue, float alpha) {
+Color::Color(double red, double green, double blue, double alpha) {
   red_   = CheckConstraints(red);
   green_ = CheckConstraints(green);
   blue_  = CheckConstraints(blue);
@@ -52,27 +52,27 @@ Color::Color(std::string value) {
 
 
 // Red channel getter/setter.
-float Color::get_red() const        { return red_; }
-void  Color::set_red(float value)   { red_ = CheckConstraints(value); }
-void  Color::set_red(int value)     { red_ = CheckConstraints(value)/255.0; }
+float Color::get_red() const         { return red_; }
+void  Color::set_red(double value)   { red_ = CheckConstraints(value); }
+void  Color::set_red(int value)      { red_ = CheckConstraints(value)/255.0; }
 
 // Green channel getter/setter.
-float Color::get_green() const      { return green_; }
-void  Color::set_green(float value) { green_ = CheckConstraints(value); }
-void  Color::set_green(int value)   { green_ = CheckConstraints(value)/255.0; }
+float Color::get_green() const       { return green_; }
+void  Color::set_green(double value) { green_ = CheckConstraints(value); }
+void  Color::set_green(int value)    { green_ = CheckConstraints(value)/255.0; }
 
 // Blue channel getter/setter.
-float Color::get_blue() const       { return blue_; }
-void  Color::set_blue(float value)  { blue_ = CheckConstraints(value); }
-void  Color::set_blue(int value)    { blue_ = CheckConstraints(value)/255.0; }
+float Color::get_blue() const        { return blue_; }
+void  Color::set_blue(double value)  { blue_ = CheckConstraints(value); }
+void  Color::set_blue(int value)     { blue_ = CheckConstraints(value)/255.0; }
 
 // Alpha channel getter/setter.
-float Color::get_alpha() const      { return alpha_; }
-void  Color::set_alpha(float value) { alpha_ = CheckConstraints(value); }
-void  Color::set_alpha(int value)   { alpha_ = CheckConstraints(value)/255.0; }
+float Color::get_alpha() const       { return alpha_; }
+void  Color::set_alpha(double value) { alpha_ = CheckConstraints(value); }
+void  Color::set_alpha(int value)    { alpha_ = CheckConstraints(value)/255.0; }
 
 
-float Color::CheckConstraints(float value) {
+float Color::CheckConstraints(double value) {
   if (value < 0.0) value = 0.0;
   else if (value > 1.0) value = 1.0;
   return value;
@@ -86,8 +86,8 @@ int Color::CheckConstraints(int value) {
 
 
 int Color::HexaToDecimal(const std::string &hexa) {
-  int int_value = 0;
-  for (int i = 0; i < hexa.length(); i++) {
+  int int_value = 0, p16 = 1;
+  for (int i = hexa.length() - 1; i >= 0; i--) {
     char c = hexa[i];  // char by char
     // Convert small letters to capital letters.
     if (c >= 'a' && c <= 'z')
@@ -102,7 +102,8 @@ int Color::HexaToDecimal(const std::string &hexa) {
     }
 
     // ... + (_ * 16^2) + (_ * 16^1) + (_ * 16^0)
-    int_value += (x * static_cast<int>(pow(16, (hexa.length() - i - 1))));
+    int_value += (x * p16);
+    p16 *= 16;
   }
   return int_value;
 }
