@@ -19,7 +19,7 @@ namespace visuals {
 template<typename T>
 class Element {
  public:
-  Element(int x, int y, T data, core::Theme& theme);
+  Element(int x, int y, T data, const core::Theme& theme);
   virtual void render() = 0;
 
  protected:

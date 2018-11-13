@@ -41,7 +41,8 @@ MatrixTracer(T (*matrix)[ColumnSize],
   // Which means if we have matrix of size 2x3, we will have a flatten array
   // of 6 elements instead.
   // We use flatten and reshape methods to handle this idea.
-  elements_.assign(RowSize * ColumnSize, theme_.getElementState(core::visuals::kNormal));
+  elements_.assign(RowSize * ColumnSize,
+    theme_.getElementState(core::visuals::kNormal));
   matrix_.resize(RowSize * ColumnSize);
   for (int i = 0; i < RowSize; i++) {
     for (int j = 0; j < ColumnSize; j++) {

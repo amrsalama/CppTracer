@@ -1,7 +1,7 @@
 #ifndef INCLUDE_TRACER_IMPL_CORE_UTILS_GENERAL_IMPL_H_
 #define INCLUDE_TRACER_IMPL_CORE_UTILS_GENERAL_IMPL_H_
 
-// Copyright © 2016.
+// Copyright © 2017.
 // Contributors to this file are:
 //    Amr Salama <amr.mo.salama@gmail.com>,
 //    ...
@@ -28,9 +28,9 @@ namespace general {
 
 // Stringify
 template<typename T> std::string Stringify(const T& data) {
-    std::ostringstream string_stream;
-    string_stream << data;
-    return string_stream.str();
+  std::ostringstream string_stream;
+  string_stream << data;
+  return string_stream.str();
 }
 
 template<> std::string Stringify<bool>(const bool& data) {
@@ -53,7 +53,7 @@ template<> std::string Stringify<float>(const float& data) {
   return string_stream.str();
 }
 
-template<> std::string Stringify<long double>(const long double& data) {
+template<> std::string Stringify<long double>(const long double& data) {  // NOLINT
   const int sigdigits = std::numeric_limits<long double>::digits10;
   std::ostringstream string_stream;
   string_stream << std::setprecision(sigdigits) << data;

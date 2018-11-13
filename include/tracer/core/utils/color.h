@@ -1,7 +1,7 @@
 #ifndef INCLUDE_TRACER_CORE_UTILS_COLOR_H_
 #define INCLUDE_TRACER_CORE_UTILS_COLOR_H_
 
-// Copyright © 2016.
+// Copyright © 2017.
 // Contributors to this file are:
 //    Amr Salama <amr.mo.salama@gmail.com>,
 //    ...
@@ -32,56 +32,47 @@ class Color {
 
   // Constructor for hexa values as string.
   // Hexa value from "#00000000" to "#FFFFFFFF".
-  // Possible values examples: #336699, #336699FF, 336699, 336699FF
-  explicit Color(std::string value);
+  // Possible value examples: #336699, #336699FF, 336699, 336699FF
+  explicit Color(const std::string &value);
 
   // Red channel getter/setter.
   inline float get_red() const;
-  inline void set_red(double value);    // Setting value from 0.0 to 1.0
-  inline void set_red(int value);       // Setting value from 0 to 255
+  inline void set_red(double value);              // value range (0.0 to 1.0)
+  inline void set_red(int value);                 // value range (0 to 255)
+  inline void set_red(const std::string &value);  // value range (00 to FF)
 
   // Green channel getter/setter.
   inline float get_green() const;
-  inline void set_green(double value);  // Setting value from 0.0 to 1.0
-  inline void set_green(int value);     // Setting value from 0 to 255
+  inline void set_green(double value);              // value range (0.0 to 1.0)
+  inline void set_green(int value);                 // value range (0 to 255)
+  inline void set_green(const std::string &value);  // value range (00 to FF)
 
   // Blue channel getter/setter.
   inline float get_blue() const;
-  inline void set_blue(double value);   // Setting value from 0.0 to 1.0
-  inline void set_blue(int value);      // Setting value from 0 to 255
+  inline void set_blue(double value);              // value range (0.0 to 1.0)
+  inline void set_blue(int value);                 // value range (0 to 255)
+  inline void set_blue(const std::string &value);  // value range (00 to FF)
 
   // Alpha channel getter/setter.
   inline float get_alpha() const;
-  inline void set_alpha(double value);  // Setting value from 0.0 to 1.0
-  inline void set_alpha(int value);     // Setting value from 0 to 255
-  int HexaToDecimal(const std::string &hexa);
+  inline void set_alpha(double value);              // value range (0.0 to 1.0)
+  inline void set_alpha(int value);                 // value range (0 to 255)
+  inline void set_alpha(const std::string &value);  // value range (00 to FF)
+
  private:
   float red_, green_, blue_, alpha_;
 
-  // Check if value is between 0.0 and 1.0,
-  // if not try to return the best possible value.
-  //
-  // Examples:
-  //    CheckConstraints(0.5);     => 0.5
-  //    CheckConstraints(2.1);     => 1.0
-  //    CheckConstraints(-0.5);    => 0.0
-  inline float CheckConstraints(double value);
-
-  // Check if value is between 0 and 255,
-  // if not try to return the best possible value.
-  //
-  // Examples:
-  //    CheckConstraints(127);    => 127
-  //    CheckConstraints(260);    => 255
-  //    CheckConstraints(-50);    => 0
-  inline int CheckConstraints(int value);
+  // Convert value to floating-point number in range (0.0 to 1.0)
+  float normalize(double value);
+  float normalize(int value);
+  float normalize(const std::string &value);
 
   // Converts haxadecimal values to decimals.
   //
   // Examples:
   //    HexaToDecimal("FF");     => 255
   //    HexaToDecimal("33");     => 51
-  // int HexaToDecimal(const std::string &hexa);
+  int HexaToDecimal(const std::string &hexa);
 };
 
 }  // namespace utils

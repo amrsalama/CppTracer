@@ -24,7 +24,7 @@ enum ElementStateType {
 
 struct ElementState {
   utils::Color background_color, font_color;
-  ElementState() {};
+  ElementState() {}
   ElementState(const utils::Color& background, const utils::Color& font)
     : background_color(background), font_color(font) {}
 };

@@ -18,7 +18,7 @@ template<typename T>
 class RectangleElement : public Element<T> {
  public:
   RectangleElement(
-    int x, int y, int width, int height, T data, core::Theme& theme);
+    int x, int y, int width, int height, T data, const core::Theme& theme);
 
   // Override render abstract method.
   using Element<T>::render;    // avoid name hiding

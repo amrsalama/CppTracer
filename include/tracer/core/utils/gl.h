@@ -1,12 +1,12 @@
 #ifndef INCLUDE_TRACER_CORE_UTILS_GL_H_
 #define INCLUDE_TRACER_CORE_UTILS_GL_H_
 
-// Copyright © 2016.
+// Copyright © 2017.
 // Contributors to this file are:
 //    Amr Salama <amr.mo.salama@gmail.com>,
 //    ...
 //
-// freeglut (openGL) core utilities for the whole library.
+// freeglut (OpenGL) core utilities for the whole library.
 // In general, this utilities define the basic shapes drawing with some
 // data visualization (e.g. rectangles, circles, arrows, ...).
 
@@ -26,12 +26,8 @@ namespace gl {
 //    DrawRectangle(0, 0, 100, 100, 22, Color(255, 0, 0), Color(0, 0, 0));
 //    DrawRectangle(0, 0, 100, 100, 33, Color(255, 0, 0), Color(0, 0, 0), 5);
 template<typename T>
-void DrawRectangle(int x,
-                   int y,
-                   int width,
-                   int height,
-                   const T& data,
-                   const Color& background_color = Color("#464646"),
+void DrawRectangle(int x, int y, int width, int height, const T& data,
+                   const Color& background_color = Color("#000000"),
                    const Color& font_color = Color("#FFFFFF"),
                    int padding = 2);
 

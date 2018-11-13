@@ -18,7 +18,7 @@ namespace visuals {
 // Constructor
 template<typename T>
 RectangleElement<T>::RectangleElement(
-    int x, int y, int width, int height, T data, core::Theme& theme)
+    int x, int y, int width, int height, T data, const core::Theme& theme)
     : Element<T>(x, y, data, theme) {
   width_ = width;
   height_ = height;

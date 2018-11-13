@@ -18,7 +18,7 @@ namespace visuals {
 // Constructor
 template<typename T>
 Element<T>::Element(
-    int x, int y, T data, core::Theme& theme) : theme_(theme) {
+    int x, int y, T data, const core::Theme& theme) : theme_(theme) {
   x_ = x;
   y_ = y;
   data_ = data;

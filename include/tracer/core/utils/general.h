@@ -1,7 +1,7 @@
 #ifndef INCLUDE_TRACER_CORE_UTILS_GENERAL_H_
 #define INCLUDE_TRACER_CORE_UTILS_GENERAL_H_
 
-// Copyright © 2016.
+// Copyright © 2017.
 // Contributors to this file are:
 //    Amr Salama <amr.mo.salama@gmail.com>,
 //    ...
@@ -33,7 +33,7 @@ template<typename T> inline std::string Stringify(const T& data);
 template<> inline std::string Stringify<bool>(const bool& data);
 template<> inline std::string Stringify<double>(const double& data);
 template<> inline std::string Stringify<float>(const float& data);
-template<> inline std::string Stringify<long double>(const long double& data);
+template<> inline std::string Stringify<long double>(const long double& data);  // NOLINT
 
 // Delay for a specific amount of time (in seconds).
 // Helps in control the speed of visualization.
