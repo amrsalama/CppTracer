@@ -23,7 +23,7 @@ class MatrixTracer : public core::Tracer {
   MatrixTracer(T (*matrix)[ColumnSize],
               float speed = 0.5,
               const std::string& window_title = "Matrix tracer",
-              const core::Theme& theme = DEFALUT_THEME);
+              const core::Theme& theme = LIGHT_THEME);
   ~MatrixTracer();
 
   // Override update abstract methods.

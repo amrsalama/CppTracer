@@ -46,10 +46,6 @@ const core::Theme LIGHT_THEME
    core::visuals::ElementState(core::utils::Color("#18AC8F"), core::utils::Color("#FFFFFF")));
 
 // DarkTheme (@salama).
-#endif  // INCLUDE_TRACER_IMPL_CORE_THEME_IMPL_H_
-
-#endif  // INCLUDE_TRACER_IMPL_CORE_THEME_IMPL_H_
-
 const core::Theme DARK_THEME
   (core::utils::Color("#AAAAAA"),
    core::visuals::ElementState(core::utils::Color("#E6E6E6"), core::utils::Color("#1E1E1E")),
@@ -57,8 +53,6 @@ const core::Theme DARK_THEME
    core::visuals::ElementState(core::utils::Color("#64C8FF"), core::utils::Color("#FFFFFF")),
    core::visuals::ElementState(core::utils::Color("#32FF96"), core::utils::Color("#FFFFFF")),
    core::visuals::ElementState(core::utils::Color("#00C864"), core::utils::Color("#FFFFFF")));
-
-const core::Theme& DEFALUT_THEME = LIGHT_THEME;
 
 }  // namespace tracer
 

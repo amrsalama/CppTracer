@@ -32,7 +32,7 @@ class ArrayTracer : public core::Tracer {
               int size,
               float speed = 0.5,
               const std::string& window_title = "Array tracer",
-              const core::Theme& theme = DEFALUT_THEME);
+              const core::Theme& theme = LIGHT_THEME);
   ~ArrayTracer();
 
   // Override update abstract methods.

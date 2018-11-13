@@ -23,7 +23,7 @@ class Tracer {
          float window_height,
          float speed,
          const std::string& window_title,
-         const core::Theme& theme = DEFALUT_THEME);
+         const core::Theme& theme = LIGHT_THEME);
   ~Tracer();
 
   // Update tracer data, and visualize all changes happened.
