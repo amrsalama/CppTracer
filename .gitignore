@@ -2,3 +2,5 @@
 *.gch
 lib
 build
+
+run
