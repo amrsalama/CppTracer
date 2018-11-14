@@ -5,9 +5,11 @@ int main() {
   int arr[] = {10, 20, 30, 40, 50, 60, 70, 80};
   int N = sizeof(arr)/sizeof(int);
   
-  tracer::ArrayTracer<int> tr(arr, N, 0.4);
+  tracer::ArrayTracer<int> tr(arr, N, 0.9);
 
-  int target = 330;
+  int target = 30;
+  std::cout << "Searching for " << target << std::endl;
+
   int a = 0, b = N-1;
   int mid, x;
   while(true) {
